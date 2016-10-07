@@ -111,12 +111,13 @@
   #bootstrap-overrides .jumbotron {
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 75%;
+/*    width: 75%;*/
     margin-bottom: 5px;
     color: #fff;
     background-color: #0068ba;
-    border-color: #2F6391;
-
+    border: 1px solid #2F6391;
+    margin-left: 12%;
+    margin-right: 12%;
   }
 
   #bootstrap-overrides .panel h3 {
