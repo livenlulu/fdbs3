@@ -517,6 +517,10 @@ $(".erimgMain_arrowRight").click(function(e) {
  e.stopPropagation();
 });
 
+ $("#topp").click(function(e) {
+ e.stopPropagation();
+});
+
 
 // var dir = "img2/";
 // var fileextension = ".jpg";
