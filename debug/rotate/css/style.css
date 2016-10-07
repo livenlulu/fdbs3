@@ -129,9 +129,10 @@
   #bootstrap-overrides #flogo2 {
     vertical-align: middle;
     float: right;
-   
-    min-height: 130px;
- 
+    min-width: 0px;
+    min-height: 0px;
+    height: 130px;
+    display: inline;
     top: 7px;
     right: 13%;
     position: absolute;
