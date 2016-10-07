@@ -111,7 +111,7 @@
   #bootstrap-overrides .jumbotron {
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 75%;
+    width: 81%;
     margin-bottom: 5px;
     color: #fff;
     background-color: #0068ba;
@@ -119,6 +119,43 @@
     min-width: 350px;
     /*border: 1px solid #2F6391;*/
   }
+
+  #bootstrap-overrides #flogo {
+    /*vertical-align: left;*/
+    /*float: left;*/
+    border: 5px solid #0068ba;
+    width: 21%;
+/*    min-width: 170px;
+    min-height: 141px;
+    max-height: 200px;*/
+
+    /*max-height: 309px;*/
+    background-color: white;
+
+/*    min-height:226px;
+    background-color: #0068ba; */
+  }
+
+  #bootstrap-overrides #flogo2 {
+    vertical-align: middle;
+    float: left;
+    width: 100%;
+    
+    min-height: 141px;
+    max-height:141px;
+    
+/*    min-height:226px;
+    background-color: #0068ba; */
+  }
+
+
+  #bootstrap-overrides #topp {
+    background-color: #0068ba;
+    /*height: 130px;*/
+    min-width: 80%;
+    max-height: 200px;
+  }
+
 
   #bootstrap-overrides .panel h3 {
     font-size: 17px;
