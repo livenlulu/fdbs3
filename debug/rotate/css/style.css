@@ -6,7 +6,7 @@
   }
 
   body {
-    zoom: 73%;
+    zoom: 97%;
   }
 
   @font-face {
@@ -121,7 +121,7 @@
     color: #fff;
     background-color: #0068ba;
     min-width: 350px;
-    border-radius: 2px;
+    border-radius: 3px;
   }
 
   #bootstrap-overrides #flogo2 {
@@ -131,11 +131,11 @@
     min-height: 0px;
     height: 130px;
     display: inline;
-    top: 7px;
+    top: 6px;
     right: 13%;
     position: absolute;
-    border: 2px solid #0068ba;
-    border-radius: 2px;
+    border: 5px solid #0068ba;
+    border-radius: 6px;
   }
 
 
