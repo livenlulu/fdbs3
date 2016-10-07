@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frederick Douglass Boulevard Harlem's Gateway and Restaurant Row</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="../../dist/leaflet.css" />
+
+
+ 	<link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
+  	<link rel="stylesheet" href="css/style.css"/>
+  
+  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300|Oswald|Raleway:500|Abel|Lato:700" rel="stylesheet">
+  	
+ 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/jcarousel.responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/hover.css">
+
+    
+</head>
+
+<body id="bootstrap-overrides">
+  <br>
+  <center>
+
+  	 <div class="row">
+  	 	<div class="col-md-12 col-xs-12" style="padding-left: 0px; padding-right: 0px;">
+
+		  	<div class="jumbotron">
+		  		<h3 style="margin-bottom:0px;">WELCOME TO</h3>
+		  		<h2 style="text-align:left;">FREDERICK DOUGLASS BOULEVARD</h2>
+		  		<h3 style="margin-top:6px; margin-right: 0px; padding-bottom:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARLEM'S GATEWAY &amp; RESTAURANT ROW</h3>
+			</div>
+		</div>
+
+  		<div class="col-md-7 col-xs-7" style="padding-right: 0px;">
+  			<div id="map" style="float:right">
+  			</div>
+
+
+  		</div>
+		
+
+		<div class="col-md-5 col-xs-5" style="padding-left: 2px; ">
+
+		 <div class="dropdown open">
+		  <button type="button" id="restb" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+		     Restaurants / Bars / Lounges  <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" id="resta" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+		  </ul>
+		</div>
+
+
+		 <div class="dropdown">
+		  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+		   Other Food / Beverage Establishments <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" id="otherf" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+		  </ul>
+		</div>
+
+
+		 <div class="dropdown">
+		  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Services <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" id="services" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+		  </ul>
+		</div>
+   
+   
+		 <div class="dropdown">
+		  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+		     Retail <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" id="retail" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+		  </ul>
+		</div>
+
+		
+		 <div class="dropdown">
+		  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Beauty &amp; Health <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" id="beauhea" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+		  </ul>
+		</div>
+
+		<div class="d">
+			  <button type="button" class="btn" id="direct" style="padding-top: 5px;"><center><font face="Montserrat">Amenities</font></center>
+			  	<i class="fa fa-circle" id="par"></i> &nbsp;Parks<br>
+			  	<i class="fa fa-circle" id="cf"></i> &nbsp;Community Facility/Residential<br>
+			  	<!-- <i class="fa fa-circle" id="vac"></i> &nbsp;Vacant<br> -->
+			  	<img id="ot" src="img/p.png" height="18" width="18"> &nbsp;Parking<br>
+			  	<img id="ot" src="img/a.png" height="16" width="16"><img id="ot" src="img/c.png" height="16" width="16"><img id="ot" src="img/b.png" height="16" width="16"><img id="ot" src="img/d.png" height="16" width="16"> &nbsp;Subway Stations
+			  </button>
+
+
+				  <button class="well well-sm" id="info" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+				  </button>
+
+				      <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog">
+					      <div class="modal-dialog modal-lg" id="modaltop">
+					        <div class="modal-content">
+					          <div class="modal-header">
+					            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;
+					            </button>
+					            <h3 class="modal-title" style="float:left;">Source
+					            </h3>
+					          </div>
+
+					          <div class="modal-body">
+					          
+					            <ul class="nav nav-tabs nav-justified" id="aboutTabs">
+					            </ul>
+					            
+					            <div class="tab-content" id="aboutTabsContent">
+					              <div class="tab-pane fade active in" id="about">
+					                  <!-- <h4> COMING SOON... </h4> -->
+
+					                <div class="panel panel-primary">
+					                  <div class="panel-heading"><h3 style="margin-top:0px; margin-bottom:0px;">Credits and Acknowledgments</h3>
+					                  </div>
+					                    
+					                  <ul class="list-group">
+					                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://www1.nyc.gov/site/doitt/index.page" target="_blank">New York City Department of Information Technology and Telecommunications (DoITT)</a>, <a href="http://www1.nyc.gov/site/planning/index.page" target="_blank">New York City Department of City Planning</a>, <a href="http://www.harlemcdc.org/" target="_blank">Harlem Community Development Corporation Field Surveys</a></li>
+					                    
+					                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://leafletjs.com/" target="_blank">Leaflet</a>, <a href="https://carto.com/" target="_blank">Carto</a>, <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/fnicollet/Leaflet/tree/rotate-master" target="_blank">Leaflet Rotate</a>, <a href="http://sorgalla.com/jcarousel/" target="_blank">jCarousel</a>
+					                  	</li>
+					                    
+					                    <li class="list-group-item">Map made by <a href="http://www.lucykang.com" target="_blank">Lucy Kang</a>, Sept. 2016.</li>
+
+					                  </ul>
+
+					              </div>
+
+					                  <div class="modal-footer">
+					                  	<button type="button" id="closeb" style="width:90px;" class="btn btn-default" data-dismiss="modal">Close</button>					                  </div>
+
+					                
+					              </div>
+					            </div>
+
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+
+				</div>
+			</div>
+		
+
+
+		<div class="col-md-12 col-xs-12" id="caro" style="padding-left: 0px; padding-right: 0px;">
+
+			<div class="wrapper" style="margin-left: 0px; margin-right:0px;">
+				<div class="jcarousel-wrapper">
+		                <div class="jcarousel">
+		           
+				            <ul id="imga">
+				            	
+				                        <li class="hovereffect">
+			                        		<img id="113" src="img2/113.jpg">
+				                        		<div class="overlay">
+										           <h1>WXYZ Lounge/Aloft Hotel</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="125" src="img2/125.jpg">
+				                        		<div class="overlay">
+										           <h1>Levain Bakery</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="129" src="img2/129.jpg">
+				                        		<div class="overlay">
+										           <h1>Vinateria</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="80" src="img2/80.jpg">
+				                        		<div class="overlay">
+										           <h1>Harlem L Lounge</h1>
+										        </div>
+									    </li>
+
+										<li class="hovereffect">
+			                        		<img id="63" src="img2/63.jpg">
+				                        		<div class="overlay">
+										           <h1>Harlem Tavern</h1>
+										        </div>
+									    </li>
+			                        
+
+									    <li class="hovereffect">
+			                        		<img id="53" src="img2/53.jpg">
+				                        		<div class="overlay">
+										           <h1>Moca Lounge</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="56" src="img2/56.jpg">
+				                        		<div class="overlay">
+										           <h1>67 Orange Street</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="49" src="img2/49.jpg">
+				                        		<div class="overlay">
+										           <h1>Harlem Skin Clinic</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="70" src="img2/70.jpg">
+				                        		<div class="overlay">
+										           <h1>Zoe Hookah Lounge</h1>
+										        </div>
+									    </li>
+
+									  
+									    <li class="hovereffect">
+			                        		<img id="95" src="img2/95.jpg">
+				                        		<div class="overlay">
+										           <h1>Spring Bank</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+			                        		<img id="98" src="img2/98.jpg">
+				                        		<div class="overlay">
+										           <h1>Lido</h1>
+										        </div>
+									    </li>
+
+									    <li class="hovereffect">
+				                        	<img id="39" src="img2/39.jpg">
+					                        	<div class="overlay">
+										           <h1>Bebenoir</h1>
+										        </div>
+									    </li>
+									    
+			                    </ul>
+		                	
+		                </div>
+
+		                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+		                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+		                <p class="jcarousel-pagination"></p>
+		        </div>
+		    </div>
+		
+		</div>
+	
+ 	</center>
+
+	<script src="data/resta.geojson.js"></script>
+  	<script src="data/otherf.geojson.js"></script>
+  	<script src="data/services.geojson.js"></script>
+  	<script src="data/retail.geojson.js"></script>
+  	<script src="data/beauhea.geojson.js"></script>
+  	<script src="data/biz.geojson.js"></script>
+  	<script src="data/others.geojson.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+	<script type="text/javascript" src="js/jcaro.jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript" src="js/jcarousel.responsive.js"></script>
+    
+    <script type="text/javascript" src="../../build/deps.js"></script>
+	<script src="../leaflet-include.js"></script>
+	<script src="js/script.js"></script>
+
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	
+<!--   	// <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> -->
+
+</body>
+</html>
