@@ -103,7 +103,7 @@
  
   #bootstrap-overrides h2 {
     font-size: 28px;
-    font-family: Oswald;
+    font-family: Montserrat;
     margin-top: 8px;
     margin-bottom: 8px;
   }
@@ -111,13 +111,13 @@
   #bootstrap-overrides .jumbotron {
     padding-top: 5px;
     padding-bottom: 5px;
-/*    width: 75%;*/
+    width: 75%;
     margin-bottom: 5px;
     color: #fff;
     background-color: #0068ba;
-    border: 1px solid #2F6391;
-    margin-left: 12%;
-    margin-right: 12%;
+    
+    min-width: 350px;
+    /*border: 1px solid #2F6391;*/
   }
 
   #bootstrap-overrides .panel h3 {
@@ -139,7 +139,7 @@
   }
 
   #bootstrap-overrides h3 {
-    font-size: 20px;
+    font-size: 22px;
     font-family: Abel;
     text-align:left;
   }
