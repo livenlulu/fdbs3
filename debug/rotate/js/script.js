@@ -456,6 +456,13 @@ $(document).ready(function () {
 });
 });
 
+
+$(document).resize(function() {
+  if ($(document).width() < 200) {
+    $("#flogo2").hide();
+  }
+});
+
 //avoidclick
 $("#map").on('click', function(f) {
   f.stopPropagation();
