@@ -9,6 +9,11 @@
     zoom: 73%;
   }
 
+  @font-face {
+    font-family: MarketDeco; 
+    src: url('MarketDeco.ttf'); 
+  }
+
   #bootstrap-overrides #source a {
     color: black;
     font-weight: 500;
@@ -103,7 +108,7 @@
  
   #bootstrap-overrides h2 {
     font-size: 28px;
-    font-family: Montserrat;
+    font-family: MarketDeco;
     margin-top: 8px;
     margin-bottom: 8px;
   }
@@ -154,7 +159,7 @@
 
   #bootstrap-overrides h3 {
     font-size: 22px;
-    font-family: Abel;
+    font-family: MarketDeco;
     text-align:left;
   }
 
