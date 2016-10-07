@@ -111,7 +111,7 @@
   #bootstrap-overrides .jumbotron {
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 81%;
+    width: 76%;
     margin-bottom: 5px;
     color: #fff;
     background-color: #0068ba;
@@ -127,10 +127,13 @@
 
   #bootstrap-overrides #flogo2 {
     vertical-align: middle;
-    float: left;
-    width: 100%;
-    min-height: 141px;
-    max-height:141px;
+    float: right;
+   
+    min-height: 130px;
+ 
+    top: 7px;
+    right: 14%;
+    position: absolute;
   }
 
 
