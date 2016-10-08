@@ -11,24 +11,14 @@
 
   @font-face {
     font-family: MavenL; 
-    src: url('MavenProLight-200.otf'); 
-  }
-
-  @font-face {
-    font-family: MavenP; 
     src: url('MavenProLight-300.otf'); 
   }
 
-
   @font-face {
-    font-family: Governor; 
-    src: url('governor.ttf'); 
+    font-family: MavenM; 
+    src: url('MavenPro-Medium.ttf'); 
   }
 
-  @font-face {
-    font-family: MarketDeco; 
-    src: url('MarketDeco.ttf'); 
-  }
 
   #bootstrap-overrides #source a {
     color: black;
@@ -124,7 +114,7 @@
  
   #bootstrap-overrides h2 {
     font-size: 24px;
-    font-family: MavenP;
+    font-family: MavenM;
     margin-top: 8px;
     margin-bottom: 6px;
   }
