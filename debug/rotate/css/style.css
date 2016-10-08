@@ -113,7 +113,7 @@
   }
  
   #bootstrap-overrides h2 {
-    font-size: 24px;
+    font-size: 23px;
     font-family: MavenM;
     margin-top: 8px;
     margin-bottom: 6px;
@@ -164,7 +164,7 @@
   }
 
   #bootstrap-overrides h3 {
-    font-size: 18px;
+    font-size: 17px;
     font-family: MavenL;
     text-align:left;
   }
