@@ -45,7 +45,7 @@
   }
 
   #bootstrap-overrides h6 {
-    font-size: 13px;
+    font-size: 11px;
     margin-top: 0px;
     margin-bottom: 5px;
     font-family: Roboto;
@@ -189,7 +189,7 @@
   #map {
     margin-top: 0px;
     width: 80%;
-    height: 600px;
+    height: 561px;
     border: solid 1px #ccc;
     min-width: 208px;
     max-height: 603px;
@@ -311,6 +311,7 @@
   padding: 10px;
   font-family: Montserrat;
   min-width: 140px;
+  font-size: 12px;
 }
 
 .btn-group {
@@ -329,6 +330,7 @@
   font-family: Raleway;
   overflow:scroll;
   min-width: 140px;
+  font-size: 12px;
 }
 
 
@@ -470,11 +472,11 @@
 
 #bootstrap-overrides #direct {
   background-color: #eee;
-  height:132px;
+  height:112px;
   width:72%;
   text-align: left;
-  font-family: Open Sans;
-  font-size: 14px;
+  font-family: Raleway;
+  font-size: 12px;
   font-weight: 400;
   color: #000;
   opacity: .9;
