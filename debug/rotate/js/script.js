@@ -461,7 +461,7 @@ $(document).ready(function () {
 
 
 // $(window).resize(function() {
-  if ($(window).width() <= 520) {
+  if ($(window).width() <= 588) {
     $("#flogo2").hide();
   
 };
