@@ -114,7 +114,8 @@
  
   #bootstrap-overrides h2 {
     font-size: 23px;
-    font-family: MavenM;
+    font-family: Maven Pro;
+    font-weight: 900;
     margin-top: 8px;
     margin-bottom: 6px;
   }
@@ -164,9 +165,10 @@
   }
 
   #bootstrap-overrides h3 {
-    font-size: 17px;
-    font-family: MavenL;
+    font-size: 16px;
+    font-family: Maven Pro;
     text-align:left;
+
   }
 
   #bootstrap-overrides .popover-title h3 {
@@ -299,7 +301,8 @@
   float: left;
   border-radius: 2px;
   padding: 10px;
-  font-family: Montserrat;
+  font-family: Maven Pro;
+  font-weight: 700;
   min-width: 138px;
   font-size: 12px;
 }
