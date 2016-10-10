@@ -9,16 +9,6 @@
     zoom: 97%;
   }
 
-  @font-face {
-    font-family: MavenL; 
-    src: url('MavenProLight-300.otf'); 
-  }
-
-  @font-face {
-    font-family: MavenM; 
-    src: url('MavenPro-Medium.ttf'); 
-  }
-
 
   #bootstrap-overrides #source a {
     color: black;
