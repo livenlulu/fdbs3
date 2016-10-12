@@ -115,10 +115,11 @@
     padding-bottom: 5px;
     width: 75%;
     margin-bottom: 5px;
-    color: #fff;
-    background-color: #0068ba; 
+    color: #000;
+    background-color: #eee; 
     min-width: 349px;
     border-radius: 3px;
+    border: 1px solid #ddd;
   }
 
   #bootstrap-overrides #flogo2 {
@@ -126,12 +127,12 @@
     float: right;
     min-width: 0px;
     min-height: 0px;
-    height: 116px;
+    height: 115px;
     display: inline;
     top: 6px;
-    right: 13%;
+    right: 14%;
     position: absolute;
-    border: 5px solid #0068ba;
+    border: 1px solid #ddd;
     border-radius: 6px;
   }
 
