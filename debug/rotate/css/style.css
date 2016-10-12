@@ -112,10 +112,10 @@
     width: 75%;
     margin-bottom: 5px;
     color: #000;
-    background-color: #ddd; 
+    background-color: #eee; 
     min-width: 349px;
     border-radius: 2px;
-    border: 1px solid #ddd;
+    border: 1px solid #eee;
   }
 
   #bootstrap-overrides #flogo2 {
