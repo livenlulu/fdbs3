@@ -544,9 +544,6 @@
   padding-bottom: 20px;
 }
 
-#bootstrap-overrides #rig {
-  float:center;
-}
 
 #bootstrap-overrides #info {
   position: absolute;
@@ -672,6 +669,7 @@ font-size: 15px;
 
 #midd {
   min-width:342px;
+  position: relative;
 }
 }
 
