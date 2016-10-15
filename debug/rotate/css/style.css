@@ -1,9 +1,7 @@
   body, html {
     font-family: Lato;
     font-size: 12px;
-    
     font-weight: 300;
-
      background: transparent !important;
      color: transparent !important;
      background-color: transparent !important;
@@ -12,6 +10,39 @@
      left: 0;
      right: 0;
      -webkit-backface-visibility: visible;
+  }
+
+  #bootstrap-overrides #midd {
+    width: 75%;
+    min-width: 345px;
+  }
+
+  #bootstrap-overrides #cen {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  #bootstrap-overrides #sm {
+    width: 12.5%;
+    height: 470px;
+    float: left;
+  }
+
+  #bootstrap-overrides #sm2 {
+    width: 12.5%;
+    height: 470px;
+    float: right;
+  }
+
+  #bootstrap-overrides #lef {
+    width: 58%;
+    min-width: 200px;
+    padding-left: 0px;
+  }
+
+  #bootstrap-overrides #rig {
+    width: 42%;
+    padding-right:0px;
   }
 
   #bootstrap-overrides #source a {
@@ -128,7 +159,7 @@
     margin-bottom: 2px;
     color: #000;
     background-color: #eee; 
-    min-width: 352px;
+    min-width: 345px;
     border-radius: 2px;
     border: 1px solid #ddd;
   }
@@ -189,10 +220,10 @@
 
   #map {
     margin-top: 0px;
-    width: 80%;
+    width: 100%;
     height: 470px;
     border: solid 1px #ccc;
-    min-width: 209px;
+    
 /*    max-height: 603px;*/
   }
 
@@ -311,7 +342,7 @@
 }
 
 #bootstrap-overrides .btn {
-  width: 72%;
+  width: 100%;
   float: left;
   border-radius: 2px;
 /*  padding: 10px;*/
@@ -334,7 +365,7 @@
   padding-bottom:5px;
   position:relative;
   list-style-type:none;
-  width: 72%;
+  width: 100%;
   font-family: Raleway;
   overflow:scroll;
   min-width: 141px;
@@ -481,7 +512,7 @@
 #bootstrap-overrides #direct {
   background-color: #eee;
   height:100px;
-  width:72%;
+  width:100%;
   text-align: left;
   font-family: Raleway;
   font-size: 11px;
@@ -511,7 +542,7 @@
   background-color: #fff;
   border-color: #B6B6B6;
   bottom:2%;
-  right: 32%;
+  right: 2%;
   text-align: left;
   font-family: Lato;
   font-size: 15px;
@@ -605,3 +636,33 @@ font-size: 15px;
   overflow: hidden;*/
 }
 
+#headin3 {
+  margin-left: 96px;
+}
+
+@media screen and (max-width: 645px) {
+#bootstrap-overrides #flogo2 {
+  display:none;
+}
+
+#bootstrap-overrides #sm{
+  display:none;
+}
+
+#bootstrap-overrides #sm2{
+  display:none;
+}
+
+
+ #headin3 {
+    margin-left: 40px;
+  }
+
+}
+
+@media (min-width: 992px) {
+  #rig {
+    width: 41%;
+    }}
+
+}

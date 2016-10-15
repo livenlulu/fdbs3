@@ -461,10 +461,10 @@ $(document).ready(function () {
 
 
 // $(window).resize(function() {
-  if ($(window).width() <= 588) {
-    $("#flogo2").hide();
+//   if ($(window).width() <= 588) {
+//     $("#flogo2").hide();
   
-};
+// };
 
 
 //avoidclick
@@ -524,6 +524,13 @@ $(".erimgMain_arrowRight").click(function(e) {
  e.stopPropagation();
 });
 
+ $("#sm").click(function(e) {
+ e.stopPropagation();
+});
+
+  $("#sm2").click(function(e) {
+ e.stopPropagation();
+});
 
 // var dir = "img2/";
 // var fileextension = ".jpg";
