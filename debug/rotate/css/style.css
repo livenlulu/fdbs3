@@ -36,13 +36,14 @@
 
   #bootstrap-overrides #lef {
     width: 58%;
-    min-width: 200px;
+    min-width: 200.1px;
     padding-left: 0px;
   }
 
   #bootstrap-overrides #rig {
     width: 42%;
     padding-right:0px;
+    min-width: 144.9px;
   }
 
   #bootstrap-overrides #source a {
@@ -348,7 +349,7 @@
 /*  padding: 10px;*/
   font-family: Maven Pro;
   font-weight: 700;
-  min-width: 141px;
+  min-width: 144.9px;
   font-size: 11px;
   height: 32px;
 }
@@ -368,7 +369,7 @@
   width: 100%;
   font-family: Raleway;
   overflow:scroll;
-  min-width: 141px;
+  min-width: 144.9px;
   font-size: 10px;
 }
 
@@ -521,7 +522,7 @@
   opacity: .9;
   float: left;
   border-radius: 2px;
-  min-width: 141px;
+  min-width: 144.9px;
   overflow:scroll;
   margin-bottom: 0px;
   border: 1px solid #D5DBDB;
@@ -625,7 +626,7 @@ font-size: 15px;
     max-width: 75%;
     padding: 0 0px 40px 0px;
     margin: auto;
-    min-width: 352px;
+    min-width: 345px;
 }
 
 #bootstrap-overrides #modaltop {
