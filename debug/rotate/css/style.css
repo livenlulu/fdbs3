@@ -1,8 +1,17 @@
   body, html {
     font-family: Lato;
     font-size: 12px;
-    overflow-x: hidden;
+    
     font-weight: 300;
+
+     background: transparent !important;
+     color: transparent !important;
+     background-color: transparent !important;
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     -webkit-backface-visibility: visible;
   }
 
   #bootstrap-overrides #source a {
