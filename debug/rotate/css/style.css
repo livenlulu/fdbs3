@@ -43,8 +43,8 @@
   #bootstrap-overrides #rig {
     width: 42%;
     padding-right:0px;
-    min-width: 144.9px;
-    float: left;
+    min-width: 143.8px;
+    float: right;
   }
 
   #bootstrap-overrides #source a {
@@ -350,7 +350,7 @@
 /*  padding: 10px;*/
   font-family: Maven Pro;
   font-weight: 700;
-  min-width: 144.9px;
+  min-width: 143.8px;
   font-size: 11px;
   height: 32px;
 }
@@ -370,7 +370,7 @@
   width: 100%;
   font-family: Raleway;
   overflow:scroll;
-  min-width: 144.9px;
+  min-width: 143.8px;
   font-size: 10px;
 }
 
@@ -523,7 +523,7 @@
   opacity: .9;
   float: left;
   border-radius: 2px;
-  min-width: 144.9px;
+  min-width: 143.8px;
   overflow:scroll;
   margin-bottom: 0px;
   border: 1px solid #D5DBDB;
@@ -544,7 +544,7 @@
   background-color: #fff;
   border-color: #B6B6B6;
   bottom:2%;
-  right: 2%;
+  right: 5%;
   text-align: left;
   font-family: Lato;
   font-size: 15px;
@@ -660,6 +660,9 @@ font-size: 15px;
     margin-left: 40px;
   }
 
+#midd {
+  min-width:345px;
+}
 }
 
 @media (min-width: 992px) {
