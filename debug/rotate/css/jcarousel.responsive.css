@@ -89,11 +89,11 @@
 
 
 .jcarousel-control-prev {
-    left: 15px;
+    left: 2px;
 }
 
 .jcarousel-control-next {
-    right: 15px;
+    right: 2px;
 }
 
 /** Carousel Pagination **/
