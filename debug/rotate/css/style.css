@@ -22,6 +22,12 @@
     padding-right: 0px;
   }
 
+  #bootstrap-overrides #sideb {
+    float:left;
+    width: 100%;
+    min-width: 142px;
+  }
+
   #bootstrap-overrides #sm {
     width: 12.5%;
     height: 470px;
@@ -45,7 +51,7 @@
   #bootstrap-overrides #rig {
     width: 42%;
     padding-right:0px;
-    min-width: 142px;
+/*    min-width: 142px;*/
     float: left;
     position: relative;
 
