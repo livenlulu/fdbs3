@@ -38,13 +38,17 @@
     width: 58%;
     min-width: 198px;
     padding-left: 0px;
+    float:left;
+    position: relative;
   }
 
   #bootstrap-overrides #rig {
     width: 42%;
     padding-right:0px;
     min-width: 142px;
-    float: right;
+    float: left;
+    position: relative;
+
   }
 
   #bootstrap-overrides #source a {
@@ -117,7 +121,7 @@
     overflow: hidden;
     opacity: 0;
     display: block;
-
+    float: left;
   }
 
   #bootstrap-overrides .dropdown.open .dropdown-menu {
