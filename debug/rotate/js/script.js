@@ -96,6 +96,13 @@ var bizmarker = {
   opacity: 1,
   fillOpacity: 0.8
 };
+
+//popupopen center
+map.on('popupopen', function(e) {
+    var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
   
   // $.getJSON('data/biz.geojson', function(Biz) {
 
@@ -116,7 +123,7 @@ var bizmarker = {
       }
     }).addTo(map);
 
-      geojson3 = L.geoJson(services, {
+      geojson3 = L.geoJSON(services, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
@@ -124,7 +131,7 @@ var bizmarker = {
       }
     }).addTo(map);
  
-     geojson4 = L.geoJson(retail, {
+     geojson4 = L.geoJSON(retail, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
