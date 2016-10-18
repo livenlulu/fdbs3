@@ -54,25 +54,30 @@ function style(feature) {
   }
 
 function mouseoverFunction(e) {
-  this.openPopup();
-  }
-  // var layer = e.target;
-  //   layer.setStyle({
-  //       weight: 1,
-  //       color: '#fff',
-  //       dashArray: '',
-  //       fillOpacity: 0.6
-  //   });
+  // this.openPopup();
+  // }
+  var layer = e.target;
 
-  //   if (!L.Browser.ie && !L.Browser.opera) {
-  //       layer.bringToFront();
-  //   }
+    layer.setStyle({
+        weight: 4,
+        opacity: 1,
+        color: 'white',
+        dashArray: '',
+        fillOpacity: 1
+    });
+
+
+    if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+    }
+}
+
 
   //  $('#infoWindow').html(layer.feature.properties.Organization + '<br>' + '<h4>' + layer.feature.properties.Category + '</h4>');
   // }
 
 function resetHighlight(e) {
-    // geojson.resetStyle(e.target);
+    geojson.resetStyle(e.target);
     // this.closePopup();
 }
 
