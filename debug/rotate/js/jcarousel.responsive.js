@@ -9,15 +9,15 @@
 
                 if (width >= 1200) {
                     width = width / 8;
-                } else if (width >= 820) {
+                } else if (width >= 1000) {
                     width = width / 7;
-                } else if (width >= 750) {
+                } else if (width >= 850) {
                     width = width / 6;
-                } else if (width >= 570) {
+                } else if (width >= 700) {
                     width = width / 5;
-                } else if (width >= 450) {
+                } else if (width >= 600) {
                     width = width / 4;
-                } else if (width >= 300) {
+                } else if (width >= 440) {
                     width = width / 3;
                 } else if (width >= 200) {
                     width = width / 2;
