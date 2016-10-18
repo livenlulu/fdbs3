@@ -140,7 +140,7 @@ var bizmarker = {
       }
     }).addTo(map);
 
-      geojson = L.geoJson(others, {
+      geojson = L.geoJson(others2, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
