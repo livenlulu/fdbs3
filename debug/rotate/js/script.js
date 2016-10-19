@@ -44,7 +44,7 @@ function getColor(d) {
 
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.Value),
+        fillColor: getColor(feature.properties.valu),
         weight: 1,
         opacity: 1,
         color: 'white',
@@ -116,7 +116,6 @@ map.on('popupopen', function(e) {
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
         return L.circleMarker(latlng, bizmarker);
-     
       }
     }).addTo(map);
  
@@ -303,7 +302,6 @@ $(document).ready(function () {
       return 0;
 
       });
-
 
      }
 
