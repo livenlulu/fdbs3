@@ -111,7 +111,7 @@ map.on('popupopen', function(e) {
   
   // $.getJSON('data/biz.geojson', function(Biz) {
 
-    geojson1 = L.geoJson(resta, {
+    geojson1 = L.geoJSON(resta, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
@@ -120,7 +120,7 @@ map.on('popupopen', function(e) {
       }
     }).addTo(map);
  
-     geojson2 = L.geoJson(otherf, {
+     geojson2 = L.geoJSON(otherf, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
@@ -144,7 +144,7 @@ map.on('popupopen', function(e) {
       }
     }).addTo(map);
 
-     geojson5 = L.geoJson(beauhea, {
+     geojson5 = L.geoJSON(beauhea, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
@@ -152,7 +152,7 @@ map.on('popupopen', function(e) {
       }
     }).addTo(map);
 
-      geojson = L.geoJson(others2, {
+      geojson = L.geoJSON(others2, {
       style: style,
       onEachFeature: onEachFeature,
       pointTolayer: function (feature, latlng) {
