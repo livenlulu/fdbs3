@@ -15,12 +15,12 @@
   }
 
   #bootstrap-overrides #midd {
-    width: 75%;
+    width: 100%;
     min-width: 342px;
   }
 
   #bootstrap-overrides #topp {
-    margin-top: 30px;
+/*    margin-top: 30px;*/
   }
 
   #bootstrap-overrides #cen {
@@ -173,7 +173,7 @@
   #bootstrap-overrides .jumbotron {
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 75%;
+    width: 100%;
     margin-bottom: 2px;
     color: #000;
     background-color: #eee; 
@@ -643,7 +643,7 @@ font-size: 15px;
 }
 
 .wrapper {
-    max-width: 75%;
+    max-width: 100%;
     margin-top:0px;
     padding: 0 0px 40px 0px;
     margin: auto;
@@ -681,7 +681,7 @@ font-size: 15px;
   }
 
 #midd {
-  min-width:342px;
+/*  min-width:342px;*/
   position: relative;
 }
 }
