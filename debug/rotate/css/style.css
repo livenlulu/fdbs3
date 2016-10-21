@@ -3,13 +3,15 @@
     font-size: 12px;
     font-weight: 300;
      background: transparent !important;
-     color: transparent !important;
+/*     color: transparent !important;*/
      background-color: transparent !important;
      position: absolute;
      top: 0;
      left: 0;
      right: 0;
      -webkit-backface-visibility: visible;
+ /*    -webkit-overflow-scrolling: touch;
+     overflow: auto;*/
   }
 
   #bootstrap-overrides #midd {
