@@ -82,7 +82,7 @@ function resetHighlight(e) {
 }
 
 function onEachFeature(feature, layer) {
-    var popup = "<h5>" + feature.properties.Organization + "</h5>" + "<h6>" + feature.properties.Category + '</h6>' + "<h5 style='margin-bottom:3px;'>" + feature.properties.Address + "</h5>"  + feature.properties.Phone + "<br><a href='http://" + feature.properties.Web + "' target='_blank'>" + feature.properties.Web + "</a>";
+    var popup = "<h5>" + feature.properties.Organization + "</h5>" + "<h6>" + feature.properties.Category + '</h6>' + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + "<img class='imggg' onerror='this.parentNode.removeChild(this)' src='img2/" + feature.properties.OBJECTID + ".jpg ' width='180px'>" + "</a>" + "<h5 style='margin-bottom:3px;'>" + feature.properties.Address + "</h5>"  + feature.properties.Phone + "<br><a href='http://" + feature.properties.Web + "' target='_blank'>" + feature.properties.Web + "</a>";
     layer.bindPopup(popup);
 
 
