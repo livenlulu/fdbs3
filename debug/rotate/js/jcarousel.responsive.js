@@ -19,7 +19,7 @@
                     width = width / 4;
                 } else if (width >= 350) {
                     width = width / 3;
-                } else if (width >= 200) {
+                } else if (width >= 150) {
                     width = width / 2;
                 }
 
