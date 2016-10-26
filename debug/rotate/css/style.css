@@ -14,6 +14,16 @@
      overflow: auto;*/
   }
 
+  @font-face {
+    font-family: proxima-nova;
+    src: url('proximanova-regular.ttf');
+  }
+
+  @font-face {
+    font-family: proxima-nova-s;
+    src: url('proximanova-semibold.ttf');
+  }
+
   #bootstrap-overrides #midd {
     width: 100%;
     min-width: 342px;
@@ -164,10 +174,11 @@
  
   #bootstrap-overrides h2 {
     font-size: 18px;
-    font-family: Maven Pro;
+    font-family: proxima-nova-s;
     font-weight: 900;
     margin-top: 3px;
     margin-bottom: 3px;
+    letter-spacing: 3px;
   }
 
   #bootstrap-overrides .jumbotron {
@@ -224,8 +235,9 @@
 
   #bootstrap-overrides h3 {
     font-size: 14px;
-    font-family: Abel;
+    font-family: Oswald;
     text-align:left;
+    letter-spacing: 1px;
 
   }
 
@@ -364,13 +376,14 @@
   float: left;
   border-radius: 2px;
 /*  padding: 10px;*/
-  font-family: Maven Pro;
+  font-family: proxima-nova;
   font-weight: 700;
   min-width: 142px;
   font-size: 11px;
   z-index:20;
   position: relative;
   height: 32px;
+  letter-spacing: 1px;
 }
 
 .btn-group {
@@ -390,6 +403,7 @@
   overflow:scroll;
   min-width: 142px;
   font-size: 10px;
+  box-shadow: none;
 }
 
 
@@ -659,10 +673,10 @@ font-size: 15px;
 }
 
 #headin3 {
-  margin-left: 96px;
+  margin-left: 142px;
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 550px) {
 #bootstrap-overrides #flogo2 {
   display:none;
 }
