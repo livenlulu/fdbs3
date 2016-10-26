@@ -81,6 +81,17 @@ function resetHighlight(e) {
     // this.closePopup();
 }
 
+
+function onEachFeature2(feature, layer) {
+    var popup = feature.properties.Organization
+    layer.bindPopup(popup);
+    layer.on({
+        mouseover: mouseoverFunction,
+        mouseout: resetHighlight
+    });
+}
+
+
 function onEachFeature(feature, layer) {
     var popup = "<h5>" + feature.properties.Organization + "</h5>" + "<h6>" + feature.properties.Category + '</h6>' + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + "<img class='imggg' onerror='this.parentNode.removeChild(this)' src='img2/" + feature.properties.OBJECTID + ".jpg ' width='180px'>" + "</a>" + "<h5 style='margin-bottom:3px;'>" + "<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span>&nbsp;" + feature.properties.Address + "</h5>"  + "<span class='glyphicon glyphicon-earphone' aria-hidden='true'></span>&nbsp;" + feature.properties.Phone + "<br><span class='glyphicon glyphicon-globe' aria-hidden='true'></span>&nbsp;" + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + feature.properties.Web + "</a>";
     layer.bindPopup(popup);
@@ -160,14 +171,16 @@ map.on('popupopen', function(e) {
       }
     }).addTo(map);
 
+
       geojson = L.geoJSON(others2, {
       style: style,
-      onEachFeature: onEachFeature,
+      onEachFeature: onEachFeature2,
       pointTolayer: function (feature, latlng) {
-        return L.circleMarker(latlng, bizmarker);
+      return L.circleMarker(latlng, bizmarker);
       }
     }).addTo(map);
- 
+
+
 
 var parking = L.icon({
   iconUrl: 'img/p.png',
