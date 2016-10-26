@@ -384,6 +384,7 @@
   position: relative;
   height: 32px;
   letter-spacing: .50px;
+  text-transform: uppercase;
 }
 
 .btn-group {
