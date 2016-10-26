@@ -564,6 +564,7 @@
   overflow:scroll;
   margin-bottom: 0px;
   border: 1px solid #D5DBDB;
+  text-transform: none;
 }
 
 #bootstrap-overrides #caro {
