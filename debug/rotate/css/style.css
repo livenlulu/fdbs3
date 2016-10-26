@@ -174,7 +174,7 @@
  
   #bootstrap-overrides h2 {
     font-size: 18px;
-    font-family: proxima-nova-s;
+    font-family: proxima-nova;
     font-weight: 900;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -673,10 +673,10 @@ font-size: 15px;
 }
 
 #headin3 {
-  margin-left: 88px;
+  margin-left: 81px;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 530px) {
 #bootstrap-overrides #flogo2 {
   display:none;
 }
