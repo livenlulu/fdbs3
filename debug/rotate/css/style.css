@@ -178,7 +178,7 @@
     font-weight: 900;
     margin-top: 3px;
     margin-bottom: 3px;
-    letter-spacing: 3px;
+    letter-spacing: .98px;
   }
 
   #bootstrap-overrides .jumbotron {
@@ -198,7 +198,7 @@
     float: right;
     min-width: 0px;
     min-height: 0px;
-    height: 83px;
+    height: 88px;
     display: inline;
     top: 6px;
     right: 2%;
@@ -383,7 +383,7 @@
   z-index:20;
   position: relative;
   height: 32px;
-  letter-spacing: 1px;
+  letter-spacing: .98px;
 }
 
 .btn-group {
@@ -673,10 +673,10 @@ font-size: 15px;
 }
 
 #headin3 {
-  margin-left: 142px;
+  margin-left: 88px;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 540px) {
 #bootstrap-overrides #flogo2 {
   display:none;
 }
