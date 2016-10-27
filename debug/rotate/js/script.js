@@ -15,6 +15,17 @@ var map = L.map('map', {
   map.addLayer(layer);
   map.setBearing(331);
 
+
+//popupopen center
+map.on('popupopen', function(e) {
+    var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    px.x += e.popup._container.clientWidth/2000
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
+  
+
+
 var geojson;
 
   $("#info").click(function() {
@@ -116,13 +127,6 @@ var bizmarker = {
   fillOpacity: 0.8
 };
 
-//popupopen center
-map.on('popupopen', function(e) {
-    var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    map.panTo(map.unproject(px),{animate: true}); // pan to new center
-});
-  
   // $.getJSON('data/biz.geojson', function(Biz) {
 
     geojson1 = L.geoJSON(resta, {
@@ -494,9 +498,9 @@ $(document).ready(function () {
 
 
 //avoidclick
-$("#map").on('click', function(f) {
-  f.stopPropagation();
-});
+// $("#map").on('click', function(f) {
+//   f.stopPropagation();
+// });
 
 $(".erimgMain_arrowRight").click(function(e) {
  e.stopPropagation();
