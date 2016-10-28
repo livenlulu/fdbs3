@@ -175,7 +175,7 @@
   #bootstrap-overrides h2 {
     font-size: 17px;
     font-family: proxima-nova;
-    font-weight: 900;
+    font-weight: 500;
     margin-top: 3px;
     margin-bottom: 3px;
     letter-spacing: .98px;
@@ -238,7 +238,7 @@
     font-family: Oswald;
     text-align:left;
     letter-spacing: 1px;
-
+    font-weight: 300;
   }
 
   #bootstrap-overrides .popover-title h3 {
@@ -377,7 +377,7 @@
   border-radius: 2px;
 /*  padding: 10px;*/
   font-family: proxima-nova;
-/*  font-weight: 700;*/
+  font-weight: 500;
   min-width: 142px;
   font-size: 10px;
   z-index:20;
