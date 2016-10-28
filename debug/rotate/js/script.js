@@ -1,6 +1,3 @@
-// var layer = L.tileLayer('https://api.mapbox.com/styles/v1/livenlulu/citnpd893005w2itj38dhuqer/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGl2ZW5sdWx1IiwiYSI6ImNpZ3h0ZzltbzB1cTQ0cG0zamthcno1dmwifQ.vZrmbXCCq15ZVuF6g6vhkA',{
-//     attribution: ''
-// });
 var layer = L.tileLayer('https://api.mapbox.com/styles/v1/livenlulu/ciu0azvas00322in5xzze3u48/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGl2ZW5sdWx1IiwiYSI6ImNpZ3h0ZzltbzB1cTQ0cG0zamthcno1dmwifQ.vZrmbXCCq15ZVuF6g6vhkA',{
     attribution: ''
 });
@@ -15,109 +12,6 @@ var map = L.map('map', {
   map.addLayer(layer);
   map.setBearing(331);
 
-
-//popupopen center
-map.on('popupopen', function(e) {
-    var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
-    px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
-    px.x += e.popup._container.clientWidth/2000
-    map.panTo(map.unproject(px),{animate: true}); // pan to new center
-});
-  
-
-
-var geojson;
-
-  $("#info").click(function() {
-  $("#aboutModal").modal("show");
-  $(".navbar-collapse.in").collapse("hide");
-  return false;
-    });
-
-function rotate(ev) {
-    if (ev.buttons === 0) return;
-      var angle = ev.target.valueAsNumber;
-      map.setBearing(angle);
-    }
-
-function getColor(d) {
-    return d > 8  ? '#BEC2C3' : //9 vacant
-           d > 7  ? '#884EA0' : //8 community facility
-           d > 6  ? '#74A974' : //7 parks
-           d > 5  ? '#884EA0' : //6 residential
-           d > 4  ? '#3288BD' : //5 beauty & health
-           d > 3  ? '#66C2A5' : //4 retail
-           d > 2  ? '#F4D03F' : //3 services
-           d > 1  ? '#EB984E' : //2 other food
-           d > 0  ? '#C95260' : //1 restaurants
-                     '#FFEDA0';
-  }
-
-function style(feature) {
-    return {
-        fillColor: getColor(feature.properties.valu),
-        weight: 1,
-        opacity: 1,
-        color: 'white',
-        dashArray: '0',
-        fillOpacity: 0.9
-    };
-  }
-
-function mouseoverFunction(e) {
-  // this.openPopup();
-  // }
-  var layer = e.target;
-
-    layer.setStyle({
-        weight: 4,
-        opacity: 1,
-        color: 'white',
-        dashArray: '',
-        fillOpacity: 1
-    });
-
-
-    if (!L.Browser.ie && !L.Browser.opera) {
-        layer.bringToFront();
-    }
-}
-
-
-  //  $('#infoWindow').html(layer.feature.properties.Organization + '<br>' + '<h4>' + layer.feature.properties.Category + '</h4>');
-  // }
-
-function resetHighlight(e) {
-    geojson.resetStyle(e.target);
-    // this.closePopup();
-}
-
-function onEachFeature(feature, layer) {
-    var popup = "<h5>" + feature.properties.Organization + "</h5>" + "<h6>" + feature.properties.Category + '</h6>' + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + "<img class='imggg' onerror='this.parentNode.removeChild(this)' src='img2/" + feature.properties.OBJECTID + ".jpg ' width='180px'>" + "</a>" + "<h5 style='margin-bottom:3px;'>" + "<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span>&nbsp;" + feature.properties.Address + "</h5>"  + "<span class='glyphicon glyphicon-earphone' aria-hidden='true'></span>&nbsp;" + feature.properties.Phone + "<br><span class='glyphicon glyphicon-globe' aria-hidden='true'></span>&nbsp;" + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + feature.properties.Web + "</a>";
-    layer.bindPopup(popup);
-
-
-//   $('.imggg').error(function() {
-//     $(this).hide();
-  
-// });
-// layer.bindLabel(feature.properties.Organization, {noHide:true});
-
-    layer.on({
-        mouseover: mouseoverFunction,
-        mouseout: resetHighlight
-    });
-}
-
-function onEachFeature2(feature, layer) {
-    var popup = feature.properties.Organization
-    layer.bindPopup(popup);
-    layer.on({
-        mouseover: mouseoverFunction,
-        mouseout: resetHighlight
-    });
-}
-
 var bizmarker = {
   radius: 8,
   fillColor: "#bbb",
@@ -126,59 +20,6 @@ var bizmarker = {
   opacity: 1,
   fillOpacity: 0.8
 };
-
-  // $.getJSON('data/biz.geojson', function(Biz) {
-
-    geojson1 = L.geoJSON(resta, {
-      style: style,
-      onEachFeature: onEachFeature,
-      pointTolayer: function (feature, latlng) {
-        return L.circleMarker(latlng, bizmarker);
-      }
-    }).addTo(map);
- 
-     geojson2 = L.geoJSON(otherf, {
-      style: style,
-      onEachFeature: onEachFeature,
-      pointTolayer: function (feature, latlng) {
-        return L.circleMarker(latlng, bizmarker);
-      }
-    }).addTo(map);
-
-      geojson3 = L.geoJSON(services, {
-      style: style,
-      onEachFeature: onEachFeature,
-      pointTolayer: function (feature, latlng) {
-        return L.circleMarker(latlng, bizmarker);
-      }
-    }).addTo(map);
- 
-     geojson4 = L.geoJSON(retail, {
-      style: style,
-      onEachFeature: onEachFeature,
-      pointTolayer: function (feature, latlng) {
-        return L.circleMarker(latlng, bizmarker);
-      }
-    }).addTo(map);
-
-     geojson5 = L.geoJSON(beauhea, {
-      style: style,
-      onEachFeature: onEachFeature,
-      pointTolayer: function (feature, latlng) {
-        return L.circleMarker(latlng, bizmarker);
-      }
-    }).addTo(map);
-
-
-      geojson = L.geoJSON(others2, {
-      style: style,
-      onEachFeature: onEachFeature2,
-      pointTolayer: function (feature, latlng) {
-      return L.circleMarker(latlng, bizmarker);
-      }
-    }).addTo(map);
-
-
 
 var parking = L.icon({
   iconUrl: 'img/p.png',
@@ -278,6 +119,154 @@ var dt = [
   },
 ]
 
+var geojson;
+
+
+function rotate(ev) {
+    if (ev.buttons === 0) return;
+      var angle = ev.target.valueAsNumber;
+      map.setBearing(angle);
+    }
+
+function getColor(d) {
+    return d > 8  ? '#C95260' : //9 vacant
+           d > 7  ? '#884EA0' : //8 community facility
+           d > 6  ? '#74A974' : //7 parks
+           d > 5  ? '#884EA0' : //6 residential
+           d > 4  ? '#3288BD' : //5 beauty & health
+           d > 3  ? '#66C2A5' : //4 retail
+           d > 2  ? '#F4D03F' : //3 services
+           d > 1  ? '#EB984E' : //2 other food
+           d > 0  ? '#C95260' : //1 restaurants
+                     '#FFEDA0';
+  }
+
+function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.valu),
+        weight: 1,
+        opacity: 1,
+        color: 'white',
+        dashArray: '',
+        fillOpacity: 0.9
+    };
+  }
+
+function mouseoverFunction(e) {
+  // this.openPopup();
+  // }
+  var layer = e.target;
+
+    layer.setStyle({
+        weight: 4,
+        opacity: 1,
+        color: 'white',
+        dashArray: '',
+        fillOpacity: 1
+    });
+
+
+    if (!L.Browser.ie && !L.Browser.opera) {
+        layer.bringToFront();
+    }
+}
+
+
+  //  $('#infoWindow').html(layer.feature.properties.Organization + '<br>' + '<h4>' + layer.feature.properties.Category + '</h4>');
+  // }
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    // this.closePopup();
+}
+
+function onEachFeature(feature, layer) {
+    var popup = "<h5>" + feature.properties.Organization + "</h5>" + "<h6>" + feature.properties.Category + '</h6>' + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + "<img class='imggg' onerror='this.parentNode.removeChild(this)' src='img2/" + feature.properties.OBJECTID + ".jpg ' width='180px'>" + "</a>" + "<h5 style='margin-bottom:3px;'>" + "<span class='glyphicon glyphicon-map-marker' aria-hidden='true'></span>&nbsp;" + feature.properties.Address + "</h5>"  + "<span class='glyphicon glyphicon-earphone' aria-hidden='true'></span>&nbsp;" + feature.properties.Phone + "<br><span class='glyphicon glyphicon-globe' aria-hidden='true'></span>&nbsp;" + "<a href='http://" + feature.properties.Web + "' target='_blank'>" + feature.properties.Web + "</a>";
+    layer.bindPopup(popup);
+
+
+//   $('.imggg').error(function() {
+//     $(this).hide();
+  
+// });
+// layer.bindLabel(feature.properties.Organization, {noHide:true});
+
+    layer.on({
+        mouseover: mouseoverFunction,
+        mouseout: resetHighlight
+    });
+}
+
+function onEachFeature2(feature, layer) {
+    var popup = feature.properties.Organization
+    layer.bindPopup(popup);
+    layer.on({
+        mouseover: mouseoverFunction,
+        mouseout: resetHighlight
+    });
+}
+
+  // $.getJSON('data/biz.geojson', function(Biz) {
+
+    geojson1 = L.geoJSON(resta, {
+      style: style,
+      onEachFeature: onEachFeature,
+      pointTolayer: function (feature, latlng) {
+        return L.circleMarker(latlng, bizmarker);
+      }
+    }).addTo(map);
+ 
+     geojson2 = L.geoJSON(otherf, {
+      style: style,
+      onEachFeature: onEachFeature,
+      pointTolayer: function (feature, latlng) {
+        return L.circleMarker(latlng, bizmarker);
+      }
+    }).addTo(map);
+
+      geojson3 = L.geoJSON(services, {
+      style: style,
+      onEachFeature: onEachFeature,
+      pointTolayer: function (feature, latlng) {
+        return L.circleMarker(latlng, bizmarker);
+      }
+    }).addTo(map);
+ 
+     geojson4 = L.geoJSON(retail, {
+      style: style,
+      onEachFeature: onEachFeature,
+      pointTolayer: function (feature, latlng) {
+        return L.circleMarker(latlng, bizmarker);
+      }
+    }).addTo(map);
+
+     geojson5 = L.geoJSON(beauhea, {
+      style: style,
+      onEachFeature: onEachFeature,
+      pointTolayer: function (feature, latlng) {
+        return L.circleMarker(latlng, bizmarker);
+      }
+    }).addTo(map);
+
+
+      geojson = L.geoJSON(others2, {
+      style: style,
+      onEachFeature: onEachFeature2,
+      pointTolayer: function (feature, latlng) {
+      return L.circleMarker(latlng, bizmarker);
+      }
+    }).addTo(map);
+
+
+//popupopen center
+map.on('popupopen', function(e) {
+    var px = map.project(e.popup._latlng); // find the pixel location on the map where the popup anchor is
+    px.y -= e.popup._container.clientHeight/2 // find the height of the popup container, divide by 2, subtract from the Y axis of marker location
+    px.x += e.popup._container.clientWidth/2000
+    map.panTo(map.unproject(px),{animate: true}); // pan to new center
+});
+  
+
 pa.forEach(function(p) {
   var mar = L.marker(p.coord, {icon: parking}).addTo(map);
   mar.bindPopup(p.name)
@@ -303,12 +292,18 @@ dt.forEach(function(d) {
   mar5.bindPopup(d.name)
 });
 
+$("#info").click(function() {
+$("#aboutModal").modal("show");
+$(".navbar-collapse.in").collapse("hide");
+  return false;
+    });
+
 
 $(document).ready(function () {
   var listIt = "";
     for (var i = 0; i < resta.features.length; i++){
       listIt += "<li><a id='" + resta.features[i].properties.OBJECTID+ "'>" +  resta.features[i].properties.Organization + "&nbsp;" + "<br>" + "<h6>" + resta.features[i].properties.Address + "&nbsp;" + "| " + resta.features[i].properties.Category + "</h6>" + "</a></li>" + "<li role=" + "separator" + " class=" + "divider" +"></li>";
-    
+      
       resta.features.sort(function (a, b) {
       var aa = a.properties.Organization;
       var ba = b.properties.Organization;
@@ -321,13 +316,12 @@ $(document).ready(function () {
       }
       return 0;
 
-      });
+    });
 
-     }
-
+    }
     $("#resta").html(listIt);
 
-    $("#resta li a").click(function(e){ 
+    $("#resta li a").click(function(e){
       e.stopPropagation();
       
       var id = $(this)[0].id;
@@ -336,14 +330,13 @@ $(document).ready(function () {
         if(feature.feature.properties.OBJECTID==id) {
         feature.openPopup();
       }
-      });
-  
+  });
+});
 });
 
   // var selText = $(this).text();
   // $(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 // });
-});
 
 
 $(document).ready(function () {
@@ -490,81 +483,6 @@ $(document).ready(function () {
 });
 
 
-// $(window).resize(function() {
-//   if ($(window).width() <= 588) {
-//     $("#flogo2").hide();
-  
-// };
-
-
-//avoidclick
-// $("#map").on('click', function(f) {
-//   f.stopPropagation();
-// });
-
-$(".erimgMain_arrowRight").click(function(e) {
- e.stopPropagation();
-});
-
- $("#source").click(function(e) {
- e.stopPropagation();
-
-});
-
- $("#direct").click(function(e) {
- e.stopPropagation();
-});
-
-
- $(".erimgMain_arrowLeft").click(function(e) {
- e.stopPropagation();
-});
-
-
- $("#lef").click(function(e) {
- e.stopPropagation();
-});
-
-
- $("#info").click(function(e) {
- e.stopPropagation();
-});
-
- $("#aboutModal").click(function(e) {
- e.stopPropagation();
-});
-
- $(".jumbotron").click(function(e) {
- e.stopPropagation();
-});
-
- $("#caro").click(function(e) {
- e.stopPropagation();
-});
-
- $(".divider").click(function(e) {
- e.stopPropagation();
-});
-
- $(".dropdown-menu").click(function(e) {
- e.stopPropagation();
-});
-
- $("#topp").click(function(e) {
- e.stopPropagation();
-});
-
- $("#sm").click(function(e) {
- e.stopPropagation();
-});
-
-  $("#sm2").click(function(e) {
- e.stopPropagation();
-});
-
-  $("#topp").click(function(e) {
- e.stopPropagation();
-});
 
 // var dir = "img2/";
 // var fileextension = ".jpg";
@@ -584,8 +502,8 @@ $(".erimgMain_arrowRight").click(function(e) {
 //         $("#imga").html(lis);
       
 
-        $("#imga li img").click(function(e){ 
-          e.stopPropagation();
+  $("#imga li img").click(function(e){ 
+    e.stopPropagation();
       
       var id = $(this)[0].id;
      
@@ -624,5 +542,49 @@ $(".erimgMain_arrowRight").click(function(e) {
   // });
 //   }
 // });
+
+//avoidclick
+$("#map").on('click', function(f) {
+  f.stopPropagation();
+});
+
+ $("#source").click(function(e) {
+ e.stopPropagation();
+
+});
+
+ $("#direct").click(function(e) {
+ e.stopPropagation();
+});
+
+ $("#info").click(function(e) {
+ e.stopPropagation();
+});
+
+ $("#aboutModal").click(function(e) {
+ e.stopPropagation();
+});
+
+ $(".jumbotron").click(function(e) {
+ e.stopPropagation();
+});
+
+ $("#caro").click(function(e) {
+ e.stopPropagation();
+});
+
+ $(".divider").click(function(e) {
+ e.stopPropagation();
+});
+
+ $(".dropdown-menu").click(function(e) {
+ e.stopPropagation();
+});
+
+ $("#topp").click(function(e) {
+ e.stopPropagation();
+});
+
+
 
 
