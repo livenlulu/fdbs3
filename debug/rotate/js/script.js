@@ -129,7 +129,7 @@ function rotate(ev) {
     }
 
 function getColor(d) {
-    return d > 8  ? '#C95260' : //9 vacant
+    return d > 8  ? '#000' : //9 vacant
            d > 7  ? '#884EA0' : //8 community facility
            d > 6  ? '#74A974' : //7 parks
            d > 5  ? '#884EA0' : //6 residential
