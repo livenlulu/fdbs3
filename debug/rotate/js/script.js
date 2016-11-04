@@ -587,7 +587,8 @@ $("#map").on('click', function(f) {
 
 
 angular.module('plunker', ['ui.bootstrap']);
-function DropdownCtrl($scope) {
+angular.module('plunker').controller('DropdownCtrl', function ($scope) {
+
   $scope.oneAtATime = true;
   $scope.items = [
     'The first choice!',
@@ -608,4 +609,4 @@ function DropdownCtrl($scope) {
     $event.stopPropagation();
     $scope.status.isopen = !$scope.status.isopen;
   };
-}
+});
