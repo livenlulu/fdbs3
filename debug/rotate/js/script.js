@@ -585,31 +585,26 @@ $("#map").on('click', function(f) {
  e.stopPropagation();
 });
 
-$(document).ready(function() {
-$('rig').on('click touchend', function(e) {
-var el = $(this);
-var link = el.attr('href');
-window.location = link;
-});
-});
 
+angular.module('plunker', ['ui.bootstrap']);
+function DropdownCtrl($scope) {
+  $scope.items = [
+    'The first choice!',
+    'And another choice for you.',
+    'but wait! A third!'
+  ];
 
-// angular.module('plunker', ['ui.bootstrap']);
-// function DropdownCtrl($scope) {
+  $scope.status = {
+    isopen: false
+  };
 
-//   $scope.status = {
-//     isopen: false
-//   };
+  $scope.toggled = function(open) {
+    console.log('Dropdown is now: ', open);
+  };
 
-//   $scope.toggled = function(open) {
-//     console.log('Dropdown is now: ', open);
-//   };
-
-
-//   $scope.toggleDropdown = function($event) {
-//     $event.preventDefault();
-//     $event.stopPropagation();
-//     $scope.status.isopen = !$scope.status.isopen;
-//   };
-// }
-
+  $scope.toggleDropdown = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    $scope.status.isopen = !$scope.status.isopen;
+  };
+}
