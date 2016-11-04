@@ -59,11 +59,11 @@
 				
 			<div id="sideb">
 
-				<div ng-controller="DropdownCtrl">
+			  <div ng-controller="DropdownCtrl">
 				<uib-accordion close-others="oneAtATime">
 		
-				 <div class="dropdown open" on-toggle="toggled(open)">
-				  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				 <div class="dropdown open">
+				  <button is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
 				     Restaurants / Bars / Lounges  <span class="caret"></span>
 				  </button>
 				  <ul class="dropdown-menu" id="resta" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
@@ -71,7 +71,7 @@
 				</div>
 
 
-				 <div class="dropdown" on-toggle="toggled(open)">
+				 <div class="dropdown">
 				  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
 				   Other Food / Beverage Establishments <span class="caret"></span>
 				  </button>
