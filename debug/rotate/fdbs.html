@@ -56,10 +56,10 @@
 		
 
 		<div class="col-md-5 col-xs-5" id="rig" style="padding-left: 1px; ">
-			
-			<div ng-controller="DropdownCtrl">
 				
-				<div id="sideb">
+			<div id="sideb">
+
+				<div ng-controller="DropdownCtrl">
 				<uib-accordion close-others="oneAtATime">
 		
 				 <div class="dropdown open" on-toggle="toggled(open)">
@@ -106,6 +106,9 @@
 				  </ul>
 				</div>
 
+				</uib-accordion>
+			</div>
+
 				<div class="d">
 					  <button type="button" class="btn" id="direct" style="padding-top: 0px;"><center><font face="proxima-nova" style="text-transform:uppercase;">Amenities</font></center>
 					  	<i class="fa fa-circle" id="par"></i> &nbsp;Parks<br>
@@ -145,7 +148,7 @@
 							                  <ul class="list-group">
 							                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://www1.nyc.gov/site/doitt/index.page" target="_blank">New York City Department of Information Technology and Telecommunications (DoITT)</a>, <a href="http://www1.nyc.gov/site/planning/index.page" target="_blank">New York City Department of City Planning</a>, <a href="http://www.harlemcdc.org/" target="_blank">Harlem Community Development Corporation Field Surveys</a></li>
 							                    
-							                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://leafletjs.com/" target="_blank">Leaflet</a>, <a href="https://carto.com/" target="_blank">Carto</a>, <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/fnicollet/Leaflet/tree/rotate-master" target="_blank">Leaflet Rotate</a>, <a href="http://sorgalla.com/jcarousel/" target="_blank">jCarousel</a>
+							                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://leafletjs.com/" target="_blank">Leaflet</a>, <a href="https://carto.com/" target="_blank">Carto</a>, <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/angular-ui/bootstrap" target="_blank">AngularJS</a>, <a href="https://github.com/fnicollet/Leaflet/tree/rotate-master" target="_blank">Leaflet Rotate</a>, <a href="http://sorgalla.com/jcarousel/" target="_blank">jCarousel</a>
 							                  	</li>
 							                    
 							                    <li class="list-group-item">Map made by <a href="http://www.lucykang.com" target="_blank">Lucy Kang</a>, Sept. 2016.</li>
@@ -168,8 +171,7 @@
 							</div>
 						</div>
 				</div>
-			</uib-accordion>
-			</div>
+		
 		</div>
 
 		
@@ -322,8 +324,13 @@
 
   	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
  	
- 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
-   	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+<!--  	// <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+  //  	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script> -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
 
 
 	<script type="text/javascript" src="js/jcaro.jquery.js"></script>
