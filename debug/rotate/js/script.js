@@ -586,18 +586,16 @@ $("#map").on('click', function(f) {
 });
 
 
-angular.module('plunker', ['ui.bootstrap']);
+angular.module('plunker', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 angular.module('plunker').controller('DropdownCtrl', function ($scope) {
 
   $scope.oneAtATime = true;
-  $scope.items = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
+
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
   $scope.status = {
-    isopen: false
+    isFirstOpen: true,
+    isFirstDisabled: false
   };
 
   $scope.toggled = function(open) {
