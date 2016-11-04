@@ -585,10 +585,12 @@ $("#map").on('click', function(f) {
  e.stopPropagation();
 });
 
-$('a').on('click touchend', function(e) {
+$(document).ready(function() {
+$('rig').on('click touchend', function(e) {
 var el = $(this);
 var link = el.attr('href');
 window.location = link;
+});
 });
 
 
