@@ -588,6 +588,7 @@ $("#map").on('click', function(f) {
 
 angular.module('plunker', ['ui.bootstrap']);
 function DropdownCtrl($scope) {
+  $scope.oneAtATime = true;
   $scope.items = [
     'The first choice!',
     'And another choice for you.',

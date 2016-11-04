@@ -56,121 +56,123 @@
 		
 
 		<div class="col-md-5 col-xs-5" id="rig" style="padding-left: 1px; ">
-			<uib-accordion close-others="oneAtATime">
+			
 			<div ng-controller="DropdownCtrl">
-			<div id="sideb">
+				
+				<div id="sideb">
+				<uib-accordion close-others="oneAtATime">
 		
-		 <div class="dropdown open" on-toggle="toggled(open)">
-		  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
-		     Restaurants / Bars / Lounges  <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" id="resta" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
-		  </ul>
-		</div>
-
-
-		 <div class="dropdown" on-toggle="toggled(open)">
-		  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
-		   Other Food / Beverage Establishments <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" id="otherf" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
-		  </ul>
-		</div>
-
-
-		 <div class="dropdown">
-		  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
-		    Services <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" id="services" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
-		  </ul>
-		</div>
-   
-   
-		 <div class="dropdown">
-		  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
-		     Retail <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" id="retail" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
-		  </ul>
-		</div>
-
-		
-		 <div class="dropdown">
-		  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
-		    Beauty &amp; Health <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" id="beauhea" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
-		  </ul>
-		</div>
-
-		<div class="d">
-			  <button type="button" class="btn" id="direct" style="padding-top: 0px;"><center><font face="proxima-nova" style="text-transform:uppercase;">Amenities</font></center>
-			  	<i class="fa fa-circle" id="par"></i> &nbsp;Parks<br>
-			  	<i class="fa fa-circle" id="cf"></i> &nbsp;Community Facility/Residential<br>
-			  	<!-- <i class="fa fa-circle" id="vac"></i> &nbsp;Vacant<br> -->
-			  	<img id="ot" src="img/p.png" height="15" width="15"> &nbsp;Parking<br>
-			  	<img id="ot" src="img/a.png" height="12" width="12"><img id="ot" src="img/c.png" height="12" width="12"><img id="ot" src="img/b.png" height="12" width="12"><img id="ot" src="img/d.png" height="12" width="12"> &nbsp;Subway Stations
-			  </button>
-
-
-				  <button class="well well-sm" id="info" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+				 <div class="dropdown open" on-toggle="toggled(open)">
+				  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				     Restaurants / Bars / Lounges  <span class="caret"></span>
 				  </button>
-
-				      <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog">
-					      <div class="modal-dialog modal-lg" id="modaltop">
-					        <div class="modal-content">
-					          <div class="modal-header">
-					            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;
-					            </button>
-					            <h3 class="modal-title" style="float:left;">Source
-					            </h3>
-					          </div>
-
-					          <div class="modal-body">
-					          
-					            <ul class="nav nav-tabs nav-justified" id="aboutTabs">
-					            </ul>
-					            
-					            <div class="tab-content" id="aboutTabsContent">
-					              <div class="tab-pane fade active in" id="about">
-					                  <!-- <h4> COMING SOON... </h4> -->
-
-					                <div class="panel panel-primary">
-					                  <div class="panel-heading"><h3 style="margin-top:0px; margin-bottom:0px;">Credits and Acknowledgments</h3>
-					                  </div>
-					                    
-					                  <ul class="list-group">
-					                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://www1.nyc.gov/site/doitt/index.page" target="_blank">New York City Department of Information Technology and Telecommunications (DoITT)</a>, <a href="http://www1.nyc.gov/site/planning/index.page" target="_blank">New York City Department of City Planning</a>, <a href="http://www.harlemcdc.org/" target="_blank">Harlem Community Development Corporation Field Surveys</a></li>
-					                    
-					                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://leafletjs.com/" target="_blank">Leaflet</a>, <a href="https://carto.com/" target="_blank">Carto</a>, <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/fnicollet/Leaflet/tree/rotate-master" target="_blank">Leaflet Rotate</a>, <a href="http://sorgalla.com/jcarousel/" target="_blank">jCarousel</a>
-					                  	</li>
-					                    
-					                    <li class="list-group-item">Map made by <a href="http://www.lucykang.com" target="_blank">Lucy Kang</a>, Sept. 2016.</li>
-
-					                  </ul>
-
-					              </div>
-
-					                  <div class="modal-footer">
-					                  	<button type="button" id="closeb" style="width:90px;" class="btn btn-default" data-dismiss="modal">Close</button>					                  </div>
-
-					                
-					              </div>
-					            </div>
-					
-					          </div>
-					        </div>
-					      </div>
-					    </div>
-					</div>
+				  <ul class="dropdown-menu" id="resta" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+				  </ul>
 				</div>
-			</div>
 
-			</div>
-			</div>
 
-		</uib-accordion>
+				 <div class="dropdown" on-toggle="toggled(open)">
+				  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				   Other Food / Beverage Establishments <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" id="otherf" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+				  </ul>
+				</div>
+
+
+				 <div class="dropdown">
+				  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Services <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" id="services" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+				  </ul>
+				</div>
+		   
+		   
+				 <div class="dropdown">
+				  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				     Retail <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" id="retail" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+				  </ul>
+				</div>
+
+				
+				 <div class="dropdown">
+				  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Beauty &amp; Health <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" id="beauhea" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
+				  </ul>
+				</div>
+
+				<div class="d">
+					  <button type="button" class="btn" id="direct" style="padding-top: 0px;"><center><font face="proxima-nova" style="text-transform:uppercase;">Amenities</font></center>
+					  	<i class="fa fa-circle" id="par"></i> &nbsp;Parks<br>
+					  	<i class="fa fa-circle" id="cf"></i> &nbsp;Community Facility/Residential<br>
+					  	<!-- <i class="fa fa-circle" id="vac"></i> &nbsp;Vacant<br> -->
+					  	<img id="ot" src="img/p.png" height="15" width="15"> &nbsp;Parking<br>
+					  	<img id="ot" src="img/a.png" height="12" width="12"><img id="ot" src="img/c.png" height="12" width="12"><img id="ot" src="img/b.png" height="12" width="12"><img id="ot" src="img/d.png" height="12" width="12"> &nbsp;Subway Stations
+					  </button>
+
+
+						  <button class="well well-sm" id="info" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						  </button>
+
+						      <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog">
+							      <div class="modal-dialog modal-lg" id="modaltop">
+							        <div class="modal-content">
+							          <div class="modal-header">
+							            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;
+							            </button>
+							            <h3 class="modal-title" style="float:left;">Source
+							            </h3>
+							          </div>
+
+							          <div class="modal-body">
+							          
+							            <ul class="nav nav-tabs nav-justified" id="aboutTabs">
+							            </ul>
+							            
+							            <div class="tab-content" id="aboutTabsContent">
+							              <div class="tab-pane fade active in" id="about">
+							                  <!-- <h4> COMING SOON... </h4> -->
+
+							                <div class="panel panel-primary">
+							                  <div class="panel-heading"><h3 style="margin-top:0px; margin-bottom:0px;">Credits and Acknowledgments</h3>
+							                  </div>
+							                    
+							                  <ul class="list-group">
+							                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://www1.nyc.gov/site/doitt/index.page" target="_blank">New York City Department of Information Technology and Telecommunications (DoITT)</a>, <a href="http://www1.nyc.gov/site/planning/index.page" target="_blank">New York City Department of City Planning</a>, <a href="http://www.harlemcdc.org/" target="_blank">Harlem Community Development Corporation Field Surveys</a></li>
+							                    
+							                    <li class="list-group-item" style="border-bottom-width:0px;"><a href="http://leafletjs.com/" target="_blank">Leaflet</a>, <a href="https://carto.com/" target="_blank">Carto</a>, <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/fnicollet/Leaflet/tree/rotate-master" target="_blank">Leaflet Rotate</a>, <a href="http://sorgalla.com/jcarousel/" target="_blank">jCarousel</a>
+							                  	</li>
+							                    
+							                    <li class="list-group-item">Map made by <a href="http://www.lucykang.com" target="_blank">Lucy Kang</a>, Sept. 2016.</li>
+
+							                  </ul>
+
+							              </div>
+
+							                  <div class="modal-footer">
+							                  	<button type="button" id="closeb" style="width:90px;" class="btn btn-default" data-dismiss="modal">Close</button>					                  </div>
+
+							                
+							              </div>
+							            </div>
+							
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							</div>
+						</div>
+				</div>
+			</uib-accordion>
+			</div>
+		</div>
+
+		
 			<!-- <div id="sm2"></div> -->
 		</div>
 
