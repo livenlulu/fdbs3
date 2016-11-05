@@ -549,7 +549,7 @@ $("#map").on('click', function(f) {
 });
 
 $(".dropdown").on('tap touchstart', function(f) {
-    $('.dropdown-menu').doubleTapToGo();
+    $(this).toggleClass("open");
 });
 
 
