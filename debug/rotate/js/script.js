@@ -544,8 +544,12 @@ $(document).ready(function () {
 // });
 
 //avoidclick
-$("#map").on('click touchstart touchend touchmove tap dbltap dragstart dragmove dragend', function(f) {
+$("#map").on('click', function(f) {
   f.stopPropagation();
+});
+
+$(".dropdown").on('tap', function(f) {
+  ('.dropdown-menu').open;
 });
 
  $("#source").click(function(e) {
