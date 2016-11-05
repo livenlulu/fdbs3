@@ -545,16 +545,6 @@ $(document).ready(function () {
 
 //avoidclick
 
-$(document).ready(function() {
-
-$('a').on('click touchend', function(e) {
-var el = $(this);
-var link = el.attr('href');
-window.location = link;
-});
-
-});
-
 
 $("#map").on('click', function(f) {
   f.stopPropagation();
