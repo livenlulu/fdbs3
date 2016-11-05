@@ -1,7 +1,507 @@
-/**
-* Bootstrap.js by @fat & @mdo
-* plugins: bootstrap-transition.js, bootstrap-modal.js, bootstrap-dropdown.js, bootstrap-scrollspy.js, bootstrap-tab.js, bootstrap-tooltip.js, bootstrap-popover.js, bootstrap-affix.js, bootstrap-alert.js, bootstrap-button.js, bootstrap-collapse.js, bootstrap-carousel.js, bootstrap-typeahead.js
-* Copyright 2012 Twitter, Inc.
-* http://www.apache.org/licenses/LICENSE-2.0.txt
-*/
-!function(a){a(function(){a.support.transition=function(){var a=function(){var a=document.createElement("bootstrap"),b={WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"oTransitionEnd otransitionend",transition:"transitionend"},c;for(c in b)if(a.style[c]!==undefined)return b[c]}();return a&&{end:a}}()})}(window.jQuery),!function(a){var b=function(b,c){this.options=c,this.$element=a(b).delegate('[data-dismiss="modal"]',"click.dismiss.modal",a.proxy(this.hide,this)),this.options.remote&&this.$element.find(".modal-body").load(this.options.remote)};b.prototype={constructor:b,toggle:function(){return this[this.isShown?"hide":"show"]()},show:function(){var b=this,c=a.Event("show");this.$element.trigger(c);if(this.isShown||c.isDefaultPrevented())return;a("body").addClass("modal-open"),this.isShown=!0,this.escape(),this.backdrop(function(){var c=a.support.transition&&b.$element.hasClass("fade");b.$element.parent().length||b.$element.appendTo(document.body),b.$element.show(),c&&b.$element[0].offsetWidth,b.$element.addClass("in").attr("aria-hidden",!1).focus(),b.enforceFocus(),c?b.$element.one(a.support.transition.end,function(){b.$element.trigger("shown")}):b.$element.trigger("shown")})},hide:function(b){b&&b.preventDefault();var c=this;b=a.Event("hide"),this.$element.trigger(b);if(!this.isShown||b.isDefaultPrevented())return;this.isShown=!1,a("body").removeClass("modal-open"),this.escape(),a(document).off("focusin.modal"),this.$element.removeClass("in").attr("aria-hidden",!0),a.support.transition&&this.$element.hasClass("fade")?this.hideWithTransition():this.hideModal()},enforceFocus:function(){var b=this;a(document).on("focusin.modal",function(a){b.$element[0]!==a.target&&!b.$element.has(a.target).length&&b.$element.focus()})},escape:function(){var a=this;this.isShown&&this.options.keyboard?this.$element.on("keyup.dismiss.modal",function(b){b.which==27&&a.hide()}):this.isShown||this.$element.off("keyup.dismiss.modal")},hideWithTransition:function(){var b=this,c=setTimeout(function(){b.$element.off(a.support.transition.end),b.hideModal()},500);this.$element.one(a.support.transition.end,function(){clearTimeout(c),b.hideModal()})},hideModal:function(a){this.$element.hide().trigger("hidden"),this.backdrop()},removeBackdrop:function(){this.$backdrop.remove(),this.$backdrop=null},backdrop:function(b){var c=this,d=this.$element.hasClass("fade")?"fade":"";if(this.isShown&&this.options.backdrop){var e=a.support.transition&&d;this.$backdrop=a('<div class="modal-backdrop '+d+'" />').appendTo(document.body),this.options.backdrop!="static"&&this.$backdrop.click(a.proxy(this.hide,this)),e&&this.$backdrop[0].offsetWidth,this.$backdrop.addClass("in"),e?this.$backdrop.one(a.support.transition.end,b):b()}else!this.isShown&&this.$backdrop?(this.$backdrop.removeClass("in"),a.support.transition&&this.$element.hasClass("fade")?this.$backdrop.one(a.support.transition.end,a.proxy(this.removeBackdrop,this)):this.removeBackdrop()):b&&b()}},a.fn.modal=function(c){return this.each(function(){var d=a(this),e=d.data("modal"),f=a.extend({},a.fn.modal.defaults,d.data(),typeof c=="object"&&c);e||d.data("modal",e=new b(this,f)),typeof c=="string"?e[c]():f.show&&e.show()})},a.fn.modal.defaults={backdrop:!0,keyboard:!0,show:!0},a.fn.modal.Constructor=b,a(function(){a("body").on("click.modal.data-api",'[data-toggle="modal"]',function(b){var c=a(this),d=c.attr("href"),e=a(c.attr("data-target")||d&&d.replace(/.*(?=#[^\s]+$)/,"")),f=e.data("modal")?"toggle":a.extend({remote:!/#/.test(d)&&d},e.data(),c.data());b.preventDefault(),e.modal(f).one("hide",function(){c.focus()})})})}(window.jQuery),!function(a){function d(){e(a(b)).removeClass("open")}function e(b){var c=b.attr("data-target"),d;return c||(c=b.attr("href"),c=c&&c.replace(/.*(?=#[^\s]*$)/,"")),d=a(c),d.length||(d=b.parent()),d}var b="[data-toggle=dropdown]",c=function(b){var c=a(b).on("click.dropdown.data-api",this.toggle);a("html").on("click.dropdown.data-api",function(){c.parent().removeClass("open")})};c.prototype={constructor:c,toggle:function(b){var c=a(this),f,g;if(c.is(".disabled, :disabled"))return;return f=e(c),g=f.hasClass("open"),d(),g||(f.toggleClass("open"),c.focus()),!1},keydown:function(b){var c,d,f,g,h,i;if(!/(38|40|27)/.test(b.keyCode))return;c=a(this),b.preventDefault(),b.stopPropagation();if(c.is(".disabled, :disabled"))return;g=e(c),h=g.hasClass("open");if(!h||h&&b.keyCode==27)return c.click();d=a("[role=menu] li:not(.divider) a",g);if(!d.length)return;i=d.index(d.filter(":focus")),b.keyCode==38&&i>0&&i--,b.keyCode==40&&i<d.length-1&&i++,~i||(i=0),d.eq(i).focus()}},a.fn.dropdown=function(b){return this.each(function(){var d=a(this),e=d.data("dropdown");e||d.data("dropdown",e=new c(this)),typeof b=="string"&&e[b].call(d)})},a.fn.dropdown.Constructor=c,a(function(){a("html").on("click.dropdown.data-api touchstart.dropdown.data-api",d),a("body").on("click.dropdown touchstart.dropdown.data-api",".dropdown",function(a){a.stopPropagation()}).on("click.dropdown.data-api touchstart.dropdown.data-api",b,c.prototype.toggle).on("keydown.dropdown.data-api touchstart.dropdown.data-api",b+", [role=menu]",c.prototype.keydown)})}(window.jQuery),!function(a){function b(b,c){var d=a.proxy(this.process,this),e=a(b).is("body")?a(window):a(b),f;this.options=a.extend({},a.fn.scrollspy.defaults,c),this.$scrollElement=e.on("scroll.scroll-spy.data-api",d),this.selector=(this.options.target||(f=a(b).attr("href"))&&f.replace(/.*(?=#[^\s]+$)/,"")||"")+" .nav li > a",this.$body=a("body"),this.refresh(),this.process()}b.prototype={constructor:b,refresh:function(){var b=this,c;this.offsets=a([]),this.targets=a([]),c=this.$body.find(this.selector).map(function(){var b=a(this),c=b.data("target")||b.attr("href"),d=/^#\w/.test(c)&&a(c);return d&&d.length&&[[d.position().top,c]]||null}).sort(function(a,b){return a[0]-b[0]}).each(function(){b.offsets.push(this[0]),b.targets.push(this[1])})},process:function(){var a=this.$scrollElement.scrollTop()+this.options.offset,b=this.$scrollElement[0].scrollHeight||this.$body[0].scrollHeight,c=b-this.$scrollElement.height(),d=this.offsets,e=this.targets,f=this.activeTarget,g;if(a>=c)return f!=(g=e.last()[0])&&this.activate(g);for(g=d.length;g--;)f!=e[g]&&a>=d[g]&&(!d[g+1]||a<=d[g+1])&&this.activate(e[g])},activate:function(b){var c,d;this.activeTarget=b,a(this.selector).parent(".active").removeClass("active"),d=this.selector+'[data-target="'+b+'"],'+this.selector+'[href="'+b+'"]',c=a(d).parent("li").addClass("active"),c.parent(".dropdown-menu").length&&(c=c.closest("li.dropdown").addClass("active")),c.trigger("activate")}},a.fn.scrollspy=function(c){return this.each(function(){var d=a(this),e=d.data("scrollspy"),f=typeof c=="object"&&c;e||d.data("scrollspy",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.scrollspy.Constructor=b,a.fn.scrollspy.defaults={offset:10},a(window).on("load",function(){a('[data-spy="scroll"]').each(function(){var b=a(this);b.scrollspy(b.data())})})}(window.jQuery),!function(a){var b=function(b){this.element=a(b)};b.prototype={constructor:b,show:function(){var b=this.element,c=b.closest("ul:not(.dropdown-menu)"),d=b.attr("data-target"),e,f,g;d||(d=b.attr("href"),d=d&&d.replace(/.*(?=#[^\s]*$)/,""));if(b.parent("li").hasClass("active"))return;e=c.find(".active a").last()[0],g=a.Event("show",{relatedTarget:e}),b.trigger(g);if(g.isDefaultPrevented())return;f=a(d),this.activate(b.parent("li"),c),this.activate(f,f.parent(),function(){b.trigger({type:"shown",relatedTarget:e})})},activate:function(b,c,d){function g(){e.removeClass("active").find("> .dropdown-menu > .active").removeClass("active"),b.addClass("active"),f?(b[0].offsetWidth,b.addClass("in")):b.removeClass("fade"),b.parent(".dropdown-menu")&&b.closest("li.dropdown").addClass("active"),d&&d()}var e=c.find("> .active"),f=d&&a.support.transition&&e.hasClass("fade");f?e.one(a.support.transition.end,g):g(),e.removeClass("in")}},a.fn.tab=function(c){return this.each(function(){var d=a(this),e=d.data("tab");e||d.data("tab",e=new b(this)),typeof c=="string"&&e[c]()})},a.fn.tab.Constructor=b,a(function(){a("body").on("click.tab.data-api",'[data-toggle="tab"], [data-toggle="pill"]',function(b){b.preventDefault(),a(this).tab("show")})})}(window.jQuery),!function(a){var b=function(a,b){this.init("tooltip",a,b)};b.prototype={constructor:b,init:function(b,c,d){var e,f;this.type=b,this.$element=a(c),this.options=this.getOptions(d),this.enabled=!0,this.options.trigger=="click"?this.$element.on("click."+this.type,this.options.selector,a.proxy(this.toggle,this)):this.options.trigger!="manual"&&(e=this.options.trigger=="hover"?"mouseenter":"focus",f=this.options.trigger=="hover"?"mouseleave":"blur",this.$element.on(e+"."+this.type,this.options.selector,a.proxy(this.enter,this)),this.$element.on(f+"."+this.type,this.options.selector,a.proxy(this.leave,this))),this.options.selector?this._options=a.extend({},this.options,{trigger:"manual",selector:""}):this.fixTitle()},getOptions:function(b){return b=a.extend({},a.fn[this.type].defaults,b,this.$element.data()),b.delay&&typeof b.delay=="number"&&(b.delay={show:b.delay,hide:b.delay}),b},enter:function(b){var c=a(b.currentTarget)[this.type](this._options).data(this.type);if(!c.options.delay||!c.options.delay.show)return c.show();clearTimeout(this.timeout),c.hoverState="in",this.timeout=setTimeout(function(){c.hoverState=="in"&&c.show()},c.options.delay.show)},leave:function(b){var c=a(b.currentTarget)[this.type](this._options).data(this.type);this.timeout&&clearTimeout(this.timeout);if(!c.options.delay||!c.options.delay.hide)return c.hide();c.hoverState="out",this.timeout=setTimeout(function(){c.hoverState=="out"&&c.hide()},c.options.delay.hide)},show:function(){var a,b,c,d,e,f,g;if(this.hasContent()&&this.enabled){a=this.tip(),this.setContent(),this.options.animation&&a.addClass("fade"),f=typeof this.options.placement=="function"?this.options.placement.call(this,a[0],this.$element[0]):this.options.placement,b=/in/.test(f),a.remove().css({top:0,left:0,display:"block"}).appendTo(b?this.$element:document.body),c=this.getPosition(b),d=a[0].offsetWidth,e=a[0].offsetHeight;switch(b?f.split(" ")[1]:f){case"bottom":g={top:c.top+c.height,left:c.left+c.width/2-d/2};break;case"top":g={top:c.top-e,left:c.left+c.width/2-d/2};break;case"left":g={top:c.top+c.height/2-e/2,left:c.left-d};break;case"right":g={top:c.top+c.height/2-e/2,left:c.left+c.width}}a.css(g).addClass(f).addClass("in")}},setContent:function(){var a=this.tip(),b=this.getTitle();a.find(".tooltip-inner")[this.options.html?"html":"text"](b),a.removeClass("fade in top bottom left right")},hide:function(){function d(){var b=setTimeout(function(){c.off(a.support.transition.end).remove()},500);c.one(a.support.transition.end,function(){clearTimeout(b),c.remove()})}var b=this,c=this.tip();return c.removeClass("in"),a.support.transition&&this.$tip.hasClass("fade")?d():c.remove(),this},fixTitle:function(){var a=this.$element;(a.attr("title")||typeof a.attr("data-original-title")!="string")&&a.attr("data-original-title",a.attr("title")||"").removeAttr("title")},hasContent:function(){return this.getTitle()},getPosition:function(b){return a.extend({},b?{top:0,left:0}:this.$element.offset(),{width:this.$element[0].offsetWidth,height:this.$element[0].offsetHeight})},getTitle:function(){var a,b=this.$element,c=this.options;return a=b.attr("data-original-title")||(typeof c.title=="function"?c.title.call(b[0]):c.title),a},tip:function(){return this.$tip=this.$tip||a(this.options.template)},validate:function(){this.$element[0].parentNode||(this.hide(),this.$element=null,this.options=null)},enable:function(){this.enabled=!0},disable:function(){this.enabled=!1},toggleEnabled:function(){this.enabled=!this.enabled},toggle:function(){this[this.tip().hasClass("in")?"hide":"show"]()},destroy:function(){this.hide().$element.off("."+this.type).removeData(this.type)}},a.fn.tooltip=function(c){return this.each(function(){var d=a(this),e=d.data("tooltip"),f=typeof c=="object"&&c;e||d.data("tooltip",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.tooltip.Constructor=b,a.fn.tooltip.defaults={animation:!0,placement:"top",selector:!1,template:'<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',trigger:"hover",title:"",delay:0,html:!0}}(window.jQuery),!function(a){var b=function(a,b){this.init("popover",a,b)};b.prototype=a.extend({},a.fn.tooltip.Constructor.prototype,{constructor:b,setContent:function(){var a=this.tip(),b=this.getTitle(),c=this.getContent();a.find(".popover-title")[this.options.html?"html":"text"](b),a.find(".popover-content > *")[this.options.html?"html":"text"](c),a.removeClass("fade top bottom left right in")},hasContent:function(){return this.getTitle()||this.getContent()},getContent:function(){var a,b=this.$element,c=this.options;return a=b.attr("data-content")||(typeof c.content=="function"?c.content.call(b[0]):c.content),a},tip:function(){return this.$tip||(this.$tip=a(this.options.template)),this.$tip},destroy:function(){this.hide().$element.off("."+this.type).removeData(this.type)}}),a.fn.popover=function(c){return this.each(function(){var d=a(this),e=d.data("popover"),f=typeof c=="object"&&c;e||d.data("popover",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.popover.Constructor=b,a.fn.popover.defaults=a.extend({},a.fn.tooltip.defaults,{placement:"right",trigger:"click",content:"",template:'<div class="popover"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'})}(window.jQuery),!function(a){var b=function(b,c){this.options=a.extend({},a.fn.affix.defaults,c),this.$window=a(window).on("scroll.affix.data-api",a.proxy(this.checkPosition,this)),this.$element=a(b),this.checkPosition()};b.prototype.checkPosition=function(){if(!this.$element.is(":visible"))return;var b=a(document).height(),c=this.$window.scrollTop(),d=this.$element.offset(),e=this.options.offset,f=e.bottom,g=e.top,h="affix affix-top affix-bottom",i;typeof e!="object"&&(f=g=e),typeof g=="function"&&(g=e.top()),typeof f=="function"&&(f=e.bottom()),i=this.unpin!=null&&c+this.unpin<=d.top?!1:f!=null&&d.top+this.$element.height()>=b-f?"bottom":g!=null&&c<=g?"top":!1;if(this.affixed===i)return;this.affixed=i,this.unpin=i=="bottom"?d.top-c:null,this.$element.removeClass(h).addClass("affix"+(i?"-"+i:""))},a.fn.affix=function(c){return this.each(function(){var d=a(this),e=d.data("affix"),f=typeof c=="object"&&c;e||d.data("affix",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.affix.Constructor=b,a.fn.affix.defaults={offset:0},a(window).on("load",function(){a('[data-spy="affix"]').each(function(){var b=a(this),c=b.data();c.offset=c.offset||{},c.offsetBottom&&(c.offset.bottom=c.offsetBottom),c.offsetTop&&(c.offset.top=c.offsetTop),b.affix(c)})})}(window.jQuery),!function(a){var b='[data-dismiss="alert"]',c=function(c){a(c).on("click",b,this.close)};c.prototype.close=function(b){function f(){e.trigger("closed").remove()}var c=a(this),d=c.attr("data-target"),e;d||(d=c.attr("href"),d=d&&d.replace(/.*(?=#[^\s]*$)/,"")),e=a(d),b&&b.preventDefault(),e.length||(e=c.hasClass("alert")?c:c.parent()),e.trigger(b=a.Event("close"));if(b.isDefaultPrevented())return;e.removeClass("in"),a.support.transition&&e.hasClass("fade")?e.on(a.support.transition.end,f):f()},a.fn.alert=function(b){return this.each(function(){var d=a(this),e=d.data("alert");e||d.data("alert",e=new c(this)),typeof b=="string"&&e[b].call(d)})},a.fn.alert.Constructor=c,a(function(){a("body").on("click.alert.data-api",b,c.prototype.close)})}(window.jQuery),!function(a){var b=function(b,c){this.$element=a(b),this.options=a.extend({},a.fn.button.defaults,c)};b.prototype.setState=function(a){var b="disabled",c=this.$element,d=c.data(),e=c.is("input")?"val":"html";a+="Text",d.resetText||c.data("resetText",c[e]()),c[e](d[a]||this.options[a]),setTimeout(function(){a=="loadingText"?c.addClass(b).attr(b,b):c.removeClass(b).removeAttr(b)},0)},b.prototype.toggle=function(){var a=this.$element.parent('[data-toggle="buttons-radio"]');a&&a.find(".active").removeClass("active"),this.$element.toggleClass("active")},a.fn.button=function(c){return this.each(function(){var d=a(this),e=d.data("button"),f=typeof c=="object"&&c;e||d.data("button",e=new b(this,f)),c=="toggle"?e.toggle():c&&e.setState(c)})},a.fn.button.defaults={loadingText:"loading..."},a.fn.button.Constructor=b,a(function(){a("body").on("click.button.data-api","[data-toggle^=button]",function(b){var c=a(b.target);c.hasClass("btn")||(c=c.closest(".btn")),c.button("toggle")})})}(window.jQuery),!function(a){var b=function(b,c){this.$element=a(b),this.options=a.extend({},a.fn.collapse.defaults,c),this.options.parent&&(this.$parent=a(this.options.parent)),this.options.toggle&&this.toggle()};b.prototype={constructor:b,dimension:function(){var a=this.$element.hasClass("width");return a?"width":"height"},show:function(){var b,c,d,e;if(this.transitioning)return;b=this.dimension(),c=a.camelCase(["scroll",b].join("-")),d=this.$parent&&this.$parent.find("> .accordion-group > .in");if(d&&d.length){e=d.data("collapse");if(e&&e.transitioning)return;d.collapse("hide"),e||d.data("collapse",null)}this.$element[b](0),this.transition("addClass",a.Event("show"),"shown"),a.support.transition&&this.$element[b](this.$element[0][c])},hide:function(){var b;if(this.transitioning)return;b=this.dimension(),this.reset(this.$element[b]()),this.transition("removeClass",a.Event("hide"),"hidden"),this.$element[b](0)},reset:function(a){var b=this.dimension();return this.$element.removeClass("collapse")[b](a||"auto")[0].offsetWidth,this.$element[a!==null?"addClass":"removeClass"]("collapse"),this},transition:function(b,c,d){var e=this,f=function(){c.type=="show"&&e.reset(),e.transitioning=0,e.$element.trigger(d)};this.$element.trigger(c);if(c.isDefaultPrevented())return;this.transitioning=1,this.$element[b]("in"),a.support.transition&&this.$element.hasClass("collapse")?this.$element.one(a.support.transition.end,f):f()},toggle:function(){this[this.$element.hasClass("in")?"hide":"show"]()}},a.fn.collapse=function(c){return this.each(function(){var d=a(this),e=d.data("collapse"),f=typeof c=="object"&&c;e||d.data("collapse",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.collapse.defaults={toggle:!0},a.fn.collapse.Constructor=b,a(function(){a("body").on("click.collapse.data-api","[data-toggle=collapse]",function(b){var c=a(this),d,e=c.attr("data-target")||b.preventDefault()||(d=c.attr("href"))&&d.replace(/.*(?=#[^\s]+$)/,""),f=a(e).data("collapse")?"toggle":c.data();c[a(e).hasClass("in")?"addClass":"removeClass"]("collapsed"),a(e).collapse(f)})})}(window.jQuery),!function(a){var b=function(b,c){this.$element=a(b),this.options=c,this.options.slide&&this.slide(this.options.slide),this.options.pause=="hover"&&this.$element.on("mouseenter",a.proxy(this.pause,this)).on("mouseleave",a.proxy(this.cycle,this))};b.prototype={cycle:function(b){return b||(this.paused=!1),this.options.interval&&!this.paused&&(this.interval=setInterval(a.proxy(this.next,this),this.options.interval)),this},to:function(b){var c=this.$element.find(".item.active"),d=c.parent().children(),e=d.index(c),f=this;if(b>d.length-1||b<0)return;return this.sliding?this.$element.one("slid",function(){f.to(b)}):e==b?this.pause().cycle():this.slide(b>e?"next":"prev",a(d[b]))},pause:function(b){return b||(this.paused=!0),this.$element.find(".next, .prev").length&&a.support.transition.end&&(this.$element.trigger(a.support.transition.end),this.cycle()),clearInterval(this.interval),this.interval=null,this},next:function(){if(this.sliding)return;return this.slide("next")},prev:function(){if(this.sliding)return;return this.slide("prev")},slide:function(b,c){var d=this.$element.find(".item.active"),e=c||d[b](),f=this.interval,g=b=="next"?"left":"right",h=b=="next"?"first":"last",i=this,j=a.Event("slide",{relatedTarget:e[0]});this.sliding=!0,f&&this.pause(),e=e.length?e:this.$element.find(".item")[h]();if(e.hasClass("active"))return;if(a.support.transition&&this.$element.hasClass("slide")){this.$element.trigger(j);if(j.isDefaultPrevented())return;e.addClass(b),e[0].offsetWidth,d.addClass(g),e.addClass(g),this.$element.one(a.support.transition.end,function(){e.removeClass([b,g].join(" ")).addClass("active"),d.removeClass(["active",g].join(" ")),i.sliding=!1,setTimeout(function(){i.$element.trigger("slid")},0)})}else{this.$element.trigger(j);if(j.isDefaultPrevented())return;d.removeClass("active"),e.addClass("active"),this.sliding=!1,this.$element.trigger("slid")}return f&&this.cycle(),this}},a.fn.carousel=function(c){return this.each(function(){var d=a(this),e=d.data("carousel"),f=a.extend({},a.fn.carousel.defaults,typeof c=="object"&&c),g=typeof c=="string"?c:f.slide;e||d.data("carousel",e=new b(this,f)),typeof c=="number"?e.to(c):g?e[g]():f.interval&&e.cycle()})},a.fn.carousel.defaults={interval:5e3,pause:"hover"},a.fn.carousel.Constructor=b,a(function(){a("body").on("click.carousel.data-api","[data-slide]",function(b){var c=a(this),d,e=a(c.attr("data-target")||(d=c.attr("href"))&&d.replace(/.*(?=#[^\s]+$)/,"")),f=!e.data("modal")&&a.extend({},e.data(),c.data());e.carousel(f),b.preventDefault()})})}(window.jQuery),!function(a){var b=function(b,c){this.$element=a(b),this.options=a.extend({},a.fn.typeahead.defaults,c),this.matcher=this.options.matcher||this.matcher,this.sorter=this.options.sorter||this.sorter,this.highlighter=this.options.highlighter||this.highlighter,this.updater=this.options.updater||this.updater,this.$menu=a(this.options.menu).appendTo("body"),this.source=this.options.source,this.shown=!1,this.listen()};b.prototype={constructor:b,select:function(){var a=this.$menu.find(".active").attr("data-value");return this.$element.val(this.updater(a)).change(),this.hide()},updater:function(a){return a},show:function(){var b=a.extend({},this.$element.offset(),{height:this.$element[0].offsetHeight});return this.$menu.css({top:b.top+b.height,left:b.left}),this.$menu.show(),this.shown=!0,this},hide:function(){return this.$menu.hide(),this.shown=!1,this},lookup:function(b){var c;return this.query=this.$element.val(),!this.query||this.query.length<this.options.minLength?this.shown?this.hide():this:(c=a.isFunction(this.source)?this.source(this.query,a.proxy(this.process,this)):this.source,c?this.process(c):this)},process:function(b){var c=this;return b=a.grep(b,function(a){return c.matcher(a)}),b=this.sorter(b),b.length?this.render(b.slice(0,this.options.items)).show():this.shown?this.hide():this},matcher:function(a){return~a.toLowerCase().indexOf(this.query.toLowerCase())},sorter:function(a){var b=[],c=[],d=[],e;while(e=a.shift())e.toLowerCase().indexOf(this.query.toLowerCase())?~e.indexOf(this.query)?c.push(e):d.push(e):b.push(e);return b.concat(c,d)},highlighter:function(a){var b=this.query.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&");return a.replace(new RegExp("("+b+")","ig"),function(a,b){return"<strong>"+b+"</strong>"})},render:function(b){var c=this;return b=a(b).map(function(b,d){return b=a(c.options.item).attr("data-value",d),b.find("a").html(c.highlighter(d)),b[0]}),b.first().addClass("active"),this.$menu.html(b),this},next:function(b){var c=this.$menu.find(".active").removeClass("active"),d=c.next();d.length||(d=a(this.$menu.find("li")[0])),d.addClass("active")},prev:function(a){var b=this.$menu.find(".active").removeClass("active"),c=b.prev();c.length||(c=this.$menu.find("li").last()),c.addClass("active")},listen:function(){this.$element.on("blur",a.proxy(this.blur,this)).on("keypress",a.proxy(this.keypress,this)).on("keyup",a.proxy(this.keyup,this)),(a.browser.webkit||a.browser.msie)&&this.$element.on("keydown",a.proxy(this.keydown,this)),this.$menu.on("click",a.proxy(this.click,this)).on("mouseenter","li",a.proxy(this.mouseenter,this))},move:function(a){if(!this.shown)return;switch(a.keyCode){case 9:case 13:case 27:a.preventDefault();break;case 38:a.preventDefault(),this.prev();break;case 40:a.preventDefault(),this.next()}a.stopPropagation()},keydown:function(b){this.suppressKeyPressRepeat=!~a.inArray(b.keyCode,[40,38,9,13,27]),this.move(b)},keypress:function(a){if(this.suppressKeyPressRepeat)return;this.move(a)},keyup:function(a){switch(a.keyCode){case 40:case 38:break;case 9:case 13:if(!this.shown)return;this.select();break;case 27:if(!this.shown)return;this.hide();break;default:this.lookup()}a.stopPropagation(),a.preventDefault()},blur:function(a){var b=this;setTimeout(function(){b.hide()},150)},click:function(a){a.stopPropagation(),a.preventDefault(),this.select()},mouseenter:function(b){this.$menu.find(".active").removeClass("active"),a(b.currentTarget).addClass("active")}},a.fn.typeahead=function(c){return this.each(function(){var d=a(this),e=d.data("typeahead"),f=typeof c=="object"&&c;e||d.data("typeahead",e=new b(this,f)),typeof c=="string"&&e[c]()})},a.fn.typeahead.defaults={source:[],items:8,menu:'<ul class="typeahead dropdown-menu"></ul>',item:'<li><a href="#"></a></li>',minLength:1},a.fn.typeahead.Constructor=b,a(function(){a("body").on("focus.typeahead.data-api",'[data-provide="typeahead"]',function(b){var c=a(this);if(c.data("typeahead"))return;b.preventDefault(),c.typeahead(c.data())})})}(window.jQuery)
+$ = jQuery
+
+$.fn.extend({
+  chosen: (options) ->
+    # Do no harm and return as soon as possible for unsupported browsers, namely IE6 and IE7
+    # Continue on if running IE document type but in compatibility mode
+    return this unless AbstractChosen.browser_is_supported()
+    this.each (input_field) ->
+      $this = $ this
+      chosen = $this.data('chosen')
+      if options is 'destroy' && chosen instanceof Chosen
+        chosen.destroy()
+      else unless chosen instanceof Chosen
+        $this.data('chosen', new Chosen(this, options))
+
+      return
+
+})
+
+class Chosen extends AbstractChosen
+
+  setup: ->
+    @form_field_jq = $ @form_field
+    @current_selectedIndex = @form_field.selectedIndex
+    @is_rtl = @form_field_jq.hasClass "chosen-rtl"
+
+  set_up_html: ->
+    container_classes = ["chosen-container"]
+    container_classes.push "chosen-container-" + (if @is_multiple then "multi" else "single")
+    container_classes.push @form_field.className if @inherit_select_classes && @form_field.className
+    container_classes.push "chosen-rtl" if @is_rtl
+
+    container_props =
+      'class': container_classes.join ' '
+      'style': "width: #{this.container_width()};"
+      'title': @form_field.title
+
+    container_props.id = @form_field.id.replace(/[^\w]/g, '_') + "_chosen" if @form_field.id.length
+
+    @container = ($ "<div />", container_props)
+
+    if @is_multiple
+      @container.html '<ul class="chosen-choices"><li class="search-field"><input type="text" value="' + @default_text + '" class="default" autocomplete="off" style="width:25px;" /></li></ul><div class="chosen-drop"><ul class="chosen-results"></ul></div>'
+    else
+      @container.html '<a class="chosen-single chosen-default" tabindex="-1"><span>' + @default_text + '</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" /></div><ul class="chosen-results"></ul></div>'
+
+    @form_field_jq.hide().after @container
+    @dropdown = @container.find('div.chosen-drop').first()
+
+    @search_field = @container.find('input').first()
+    @search_results = @container.find('ul.chosen-results').first()
+    this.search_field_scale()
+
+    @search_no_results = @container.find('li.no-results').first()
+
+    if @is_multiple
+      @search_choices = @container.find('ul.chosen-choices').first()
+      @search_container = @container.find('li.search-field').first()
+    else
+      @search_container = @container.find('div.chosen-search').first()
+      @selected_item = @container.find('.chosen-single').first()
+
+    this.results_build()
+    this.set_tab_index()
+    this.set_label_behavior()
+
+  on_ready: ->
+    @form_field_jq.trigger("chosen:ready", {chosen: this})
+
+  register_observers: ->
+    @container.bind 'touchstart.chosen', (evt) => this.container_mousedown(evt); evt.preventDefault()
+    @container.bind 'touchend.chosen', (evt) => this.container_mouseup(evt); evt.preventDefault()
+
+    @container.bind 'mousedown.chosen', (evt) => this.container_mousedown(evt); return
+    @container.bind 'mouseup.chosen', (evt) => this.container_mouseup(evt); return
+    @container.bind 'mouseenter.chosen', (evt) => this.mouse_enter(evt); return
+    @container.bind 'mouseleave.chosen', (evt) => this.mouse_leave(evt); return
+
+    @search_results.bind 'mouseup.chosen', (evt) => this.search_results_mouseup(evt); return
+    @search_results.bind 'mouseover.chosen', (evt) => this.search_results_mouseover(evt); return
+    @search_results.bind 'mouseout.chosen', (evt) => this.search_results_mouseout(evt); return
+    @search_results.bind 'mousewheel.chosen DOMMouseScroll.chosen', (evt) => this.search_results_mousewheel(evt); return
+
+    @search_results.bind 'touchstart.chosen', (evt) => this.search_results_touchstart(evt); return
+    @search_results.bind 'touchmove.chosen', (evt) => this.search_results_touchmove(evt); return
+    @search_results.bind 'touchend.chosen', (evt) => this.search_results_touchend(evt); return
+
+    @form_field_jq.bind "chosen:updated.chosen", (evt) => this.results_update_field(evt); return
+    @form_field_jq.bind "chosen:activate.chosen", (evt) => this.activate_field(evt); return
+    @form_field_jq.bind "chosen:open.chosen", (evt) => this.container_mousedown(evt); return
+    @form_field_jq.bind "chosen:close.chosen", (evt) => this.input_blur(evt); return
+
+    @search_field.bind 'blur.chosen', (evt) => this.input_blur(evt); return
+    @search_field.bind 'keyup.chosen', (evt) => this.keyup_checker(evt); return
+    @search_field.bind 'keydown.chosen', (evt) => this.keydown_checker(evt); return
+    @search_field.bind 'focus.chosen', (evt) => this.input_focus(evt); return
+    @search_field.bind 'cut.chosen', (evt) => this.clipboard_event_checker(evt); return
+    @search_field.bind 'paste.chosen', (evt) => this.clipboard_event_checker(evt); return
+
+    if @is_multiple
+      @search_choices.bind 'click.chosen', (evt) => this.choices_click(evt); return
+    else
+      @container.bind 'click.chosen', (evt) -> evt.preventDefault(); return # gobble click of anchor
+
+  destroy: ->
+    $(@container[0].ownerDocument).unbind "click.chosen", @click_test_action
+    if @search_field[0].tabIndex
+      @form_field_jq[0].tabIndex = @search_field[0].tabIndex
+
+    @container.remove()
+    @form_field_jq.removeData('chosen')
+    @form_field_jq.show()
+
+  search_field_disabled: ->
+    @is_disabled = @form_field_jq[0].disabled
+    if(@is_disabled)
+      @container.addClass 'chosen-disabled'
+      @search_field[0].disabled = true
+      @selected_item.unbind "focus.chosen", @activate_action if !@is_multiple
+      this.close_field()
+    else
+      @container.removeClass 'chosen-disabled'
+      @search_field[0].disabled = false
+      @selected_item.bind "focus.chosen", @activate_action if !@is_multiple
+
+  container_mousedown: (evt) ->
+    if !@is_disabled
+      if evt and evt.type is "mousedown" and not @results_showing
+        evt.preventDefault()
+
+      if not (evt? and ($ evt.target).hasClass "search-choice-close")
+        if not @active_field
+          @search_field.val "" if @is_multiple
+          $(@container[0].ownerDocument).bind 'click.chosen', @click_test_action
+          this.results_show()
+        else if not @is_multiple and evt and (($(evt.target)[0] == @selected_item[0]) || $(evt.target).parents("a.chosen-single").length)
+          evt.preventDefault()
+          this.results_toggle()
+
+        this.activate_field()
+
+  container_mouseup: (evt) ->
+    this.results_reset(evt) if evt.target.nodeName is "ABBR" and not @is_disabled
+
+  search_results_mousewheel: (evt) ->
+    delta = evt.originalEvent.deltaY or -evt.originalEvent.wheelDelta or evt.originalEvent.detail if evt.originalEvent
+    if delta?
+      evt.preventDefault()
+      delta = delta * 40 if evt.type is 'DOMMouseScroll'
+      @search_results.scrollTop(delta + @search_results.scrollTop())
+
+  blur_test: (evt) ->
+    this.close_field() if not @active_field and @container.hasClass "chosen-container-active"
+
+  close_field: ->
+    $(@container[0].ownerDocument).unbind "click.chosen", @click_test_action
+
+    @active_field = false
+    this.results_hide()
+
+    @container.removeClass "chosen-container-active"
+    this.clear_backstroke()
+
+    this.show_search_field_default()
+    this.search_field_scale()
+
+  activate_field: ->
+    @container.addClass "chosen-container-active"
+    @active_field = true
+
+    @search_field.val(@search_field.val())
+    @search_field.focus()
+
+
+  test_active_click: (evt) ->
+    active_container = $(evt.target).closest('.chosen-container')
+    if active_container.length and @container[0] == active_container[0]
+      @active_field = true
+    else
+      this.close_field()
+
+  results_build: ->
+    @parsing = true
+    @selected_option_count = null
+
+    @results_data = SelectParser.select_to_array @form_field
+
+    if @is_multiple
+      @search_choices.find("li.search-choice").remove()
+    else if not @is_multiple
+      this.single_set_selected_text()
+      if @disable_search or @form_field.options.length <= @disable_search_threshold
+        @search_field[0].readOnly = true
+        @container.addClass "chosen-container-single-nosearch"
+      else
+        @search_field[0].readOnly = false
+        @container.removeClass "chosen-container-single-nosearch"
+
+    this.update_results_content this.results_option_build({first:true})
+
+    this.search_field_disabled()
+    this.show_search_field_default()
+    this.search_field_scale()
+
+    @parsing = false
+
+  result_do_highlight: (el) ->
+    if el.length
+      this.result_clear_highlight()
+
+      @result_highlight = el
+      @result_highlight.addClass "highlighted"
+
+      maxHeight = parseInt @search_results.css("maxHeight"), 10
+      visible_top = @search_results.scrollTop()
+      visible_bottom = maxHeight + visible_top
+
+      high_top = @result_highlight.position().top + @search_results.scrollTop()
+      high_bottom = high_top + @result_highlight.outerHeight()
+
+      if high_bottom >= visible_bottom
+        @search_results.scrollTop if (high_bottom - maxHeight) > 0 then (high_bottom - maxHeight) else 0
+      else if high_top < visible_top
+        @search_results.scrollTop high_top
+
+  result_clear_highlight: ->
+    @result_highlight.removeClass "highlighted" if @result_highlight
+    @result_highlight = null
+
+  results_show: ->
+    if @is_multiple and @max_selected_options <= this.choices_count()
+      @form_field_jq.trigger("chosen:maxselected", {chosen: this})
+      return false
+
+    @container.addClass "chosen-with-drop"
+    @results_showing = true
+
+    @search_field.focus()
+    @search_field.val @search_field.val()
+
+    this.winnow_results()
+    @form_field_jq.trigger("chosen:showing_dropdown", {chosen: this})
+
+  update_results_content: (content) ->
+    @search_results.html content
+
+  results_hide: ->
+    if @results_showing
+      this.result_clear_highlight()
+
+      @container.removeClass "chosen-with-drop"
+      @form_field_jq.trigger("chosen:hiding_dropdown", {chosen: this})
+
+    @results_showing = false
+
+
+  set_tab_index: (el) ->
+    if @form_field.tabIndex
+      ti = @form_field.tabIndex
+      @form_field.tabIndex = -1
+      @search_field[0].tabIndex = ti
+
+  set_label_behavior: ->
+    @form_field_label = @form_field_jq.parents("label") # first check for a parent label
+    if not @form_field_label.length and @form_field.id.length
+      @form_field_label = $("label[for='#{@form_field.id}']") #next check for a for=#{id}
+
+    if @form_field_label.length > 0
+      @form_field_label.bind 'click.chosen', (evt) => if @is_multiple then this.container_mousedown(evt) else this.activate_field()
+
+  show_search_field_default: ->
+    if @is_multiple and this.choices_count() < 1 and not @active_field
+      @search_field.val(@default_text)
+      @search_field.addClass "default"
+    else
+      @search_field.val("")
+      @search_field.removeClass "default"
+
+  search_results_mouseup: (evt) ->
+    target = if $(evt.target).hasClass "active-result" then $(evt.target) else $(evt.target).parents(".active-result").first()
+    if target.length
+      @result_highlight = target
+      this.result_select(evt)
+      @search_field.focus()
+
+  search_results_mouseover: (evt) ->
+    target = if $(evt.target).hasClass "active-result" then $(evt.target) else $(evt.target).parents(".active-result").first()
+    this.result_do_highlight( target ) if target
+
+  search_results_mouseout: (evt) ->
+    this.result_clear_highlight() if $(evt.target).hasClass "active-result" or $(evt.target).parents('.active-result').first()
+
+  choice_build: (item) ->
+    choice = $('<li />', { class: "search-choice" }).html("<span>#{item.html}</span>")
+
+    if item.disabled
+      choice.addClass 'search-choice-disabled'
+    else
+      close_link = $('<a />', { class: 'search-choice-close', 'data-option-array-index': item.array_index })
+      close_link.bind 'click.chosen', (evt) => this.choice_destroy_link_click(evt)
+      choice.append close_link
+
+    @search_container.before  choice
+
+  choice_destroy_link_click: (evt) ->
+    evt.preventDefault()
+    evt.stopPropagation()
+    this.choice_destroy $(evt.target) unless @is_disabled
+
+  choice_destroy: (link) ->
+    if this.result_deselect( link[0].getAttribute("data-option-array-index") )
+      this.show_search_field_default()
+
+      this.results_hide() if @is_multiple and this.choices_count() > 0 and @search_field.val().length < 1
+
+      link.parents('li').first().remove()
+
+      this.search_field_scale()
+
+  results_reset: ->
+    this.reset_single_select_options()
+    @form_field.options[0].selected = true
+    this.single_set_selected_text()
+    this.show_search_field_default()
+    this.results_reset_cleanup()
+    @form_field_jq.trigger "change"
+    this.results_hide() if @active_field
+
+  results_reset_cleanup: ->
+    @current_selectedIndex = @form_field.selectedIndex
+    @selected_item.find("abbr").remove()
+
+  result_select: (evt) ->
+    if @result_highlight
+      high = @result_highlight
+
+      this.result_clear_highlight()
+
+      if @is_multiple and @max_selected_options <= this.choices_count()
+        @form_field_jq.trigger("chosen:maxselected", {chosen: this})
+        return false
+
+      if @is_multiple
+        high.removeClass("active-result")
+      else
+        this.reset_single_select_options()
+
+      item = @results_data[ high[0].getAttribute("data-option-array-index") ]
+      item.selected = true
+
+      @form_field.options[item.options_index].selected = true
+      @selected_option_count = null
+
+      if @is_multiple
+        this.choice_build item
+      else
+        this.single_set_selected_text(item.text)
+
+      this.results_hide() unless (evt.metaKey or evt.ctrlKey) and @is_multiple
+
+      @search_field.val ""
+
+      @form_field_jq.trigger "change", {'selected': @form_field.options[item.options_index].value} if @is_multiple || @form_field.selectedIndex != @current_selectedIndex
+      @current_selectedIndex = @form_field.selectedIndex
+      this.search_field_scale()
+
+  single_set_selected_text: (text=@default_text) ->
+    if text is @default_text
+      @selected_item.addClass("chosen-default")
+    else
+      this.single_deselect_control_build()
+      @selected_item.removeClass("chosen-default")
+
+    @selected_item.find("span").text(text)
+
+  result_deselect: (pos) ->
+    result_data = @results_data[pos]
+
+    if not @form_field.options[result_data.options_index].disabled
+      result_data.selected = false
+
+      @form_field.options[result_data.options_index].selected = false
+      @selected_option_count = null
+
+      this.result_clear_highlight()
+      this.winnow_results() if @results_showing
+
+      @form_field_jq.trigger "change", {deselected: @form_field.options[result_data.options_index].value}
+      this.search_field_scale()
+
+      return true
+    else
+      return false
+
+  single_deselect_control_build: ->
+    return unless @allow_single_deselect
+    @selected_item.find("span").first().after "<abbr class=\"search-choice-close\"></abbr>" unless @selected_item.find("abbr").length
+    @selected_item.addClass("chosen-single-with-deselect")
+
+  get_search_text: ->
+    if @search_field.val() is @default_text then "" else $('<div/>').text($.trim(@search_field.val())).html()
+
+  winnow_results_set_highlight: ->
+    selected_results = if not @is_multiple then @search_results.find(".result-selected.active-result") else []
+    do_high = if selected_results.length then selected_results.first() else @search_results.find(".active-result").first()
+
+    this.result_do_highlight do_high if do_high?
+
+  no_results: (terms) ->
+    no_results_html = $('<li class="no-results">' + @results_none_found + ' "<span></span>"</li>')
+    no_results_html.find("span").first().html(terms)
+
+    @search_results.append no_results_html
+    @form_field_jq.trigger("chosen:no_results", {chosen:this})
+
+  no_results_clear: ->
+    @search_results.find(".no-results").remove()
+
+  keydown_arrow: ->
+    if @results_showing and @result_highlight
+      next_sib = @result_highlight.nextAll("li.active-result").first()
+      this.result_do_highlight next_sib if next_sib
+    else
+      this.results_show()
+
+  keyup_arrow: ->
+    if not @results_showing and not @is_multiple
+      this.results_show()
+    else if @result_highlight
+      prev_sibs = @result_highlight.prevAll("li.active-result")
+
+      if prev_sibs.length
+        this.result_do_highlight prev_sibs.first()
+      else
+        this.results_hide() if this.choices_count() > 0
+        this.result_clear_highlight()
+
+  keydown_backstroke: ->
+    if @pending_backstroke
+      this.choice_destroy @pending_backstroke.find("a").first()
+      this.clear_backstroke()
+    else
+      next_available_destroy = @search_container.siblings("li.search-choice").last()
+      if next_available_destroy.length and not next_available_destroy.hasClass("search-choice-disabled")
+        @pending_backstroke = next_available_destroy
+        if @single_backstroke_delete
+          @keydown_backstroke()
+        else
+          @pending_backstroke.addClass "search-choice-focus"
+
+  clear_backstroke: ->
+    @pending_backstroke.removeClass "search-choice-focus" if @pending_backstroke
+    @pending_backstroke = null
+
+  keydown_checker: (evt) ->
+    stroke = evt.which ? evt.keyCode
+    this.search_field_scale()
+
+    this.clear_backstroke() if stroke != 8 and this.pending_backstroke
+
+    switch stroke
+      when 8
+        @backstroke_length = this.search_field.val().length
+        break
+      when 9
+        this.result_select(evt) if this.results_showing and not @is_multiple
+        @mouse_on_container = false
+        break
+      when 13
+        evt.preventDefault() if this.results_showing
+        break
+      when 32
+        evt.preventDefault() if @disable_search
+        break
+      when 38
+        evt.preventDefault()
+        this.keyup_arrow()
+        break
+      when 40
+        evt.preventDefault()
+        this.keydown_arrow()
+        break
+
+  search_field_scale: ->
+    if @is_multiple
+      h = 0
+      w = 0
+
+      style_block = "position:absolute; left: -1000px; top: -1000px; display:none;"
+      styles = ['font-size','font-style', 'font-weight', 'font-family','line-height', 'text-transform', 'letter-spacing']
+
+      for style in styles
+        style_block += style + ":" + @search_field.css(style) + ";"
+
+      div = $('<div />', { 'style' : style_block })
+      div.text @search_field.val()
+      $('body').append div
+
+      w = div.width() + 25
+      div.remove()
+
+      f_width = @container.outerWidth()
+
+      if( w > f_width - 10 )
+        w = f_width - 10
+
+      @search_field.css({'width': w + 'px'})
