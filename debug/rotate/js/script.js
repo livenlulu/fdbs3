@@ -549,10 +549,9 @@ $("#map").on('click', function(f) {
 });
 
 $(".dropdown").on('tap touchstart', function(f) {
-  f.preventDefault();
+    $('.dropdown-menu').doubleTapToGo();
 });
 
-$('.dropdown').doubleTapToGo();
 
  $("#source").click(function(e) {
  e.stopPropagation();
