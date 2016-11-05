@@ -419,6 +419,11 @@
   z-index: 10;
 }
 
+#bootstrap-overrides .dropdown-menu ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
 #bootstrap-overrides .dropdown-menu > li > a {
   color: #555;
   line-height: 18px;
