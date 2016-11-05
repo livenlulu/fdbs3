@@ -544,7 +544,7 @@ $(document).ready(function () {
 // });
 
 //avoidclick
-$("#map").on('click', function(f) {
+$("#map").on('click touchstart touchend touchmove tap dbltap dragstart dragmove dragend', function(f) {
   f.stopPropagation();
 });
 
@@ -553,7 +553,7 @@ $("#map").on('click', function(f) {
 
 });
 
- $("#direct").click(function(e) {
+ $("#direct").on('click touchstart touchend touchmove tap dbltap dragstart dragmove dragend', function(f) {
  e.stopPropagation();
 });
 
