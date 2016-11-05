@@ -12,7 +12,7 @@
   
   	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<link href="https://fonts.googleapis.com/css?family=Maven+Pro|Oswald:300|Roboto:300|Raleway:500|Lato:700" rel="stylesheet">
   	
  	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -59,11 +59,11 @@
 				
 			<div id="sideb">
 
-			  <div ng-controller="DropdownCtrl">
-				<uib-accordion close-others="oneAtATime">
+			  <div ng-controller="DropdownCtrl" close-others="oneAtATime">
+				<uib-accordion >
 		
 				 <div class="dropdown open">
-				  <button is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+				  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
 				     Restaurants / Bars / Lounges  <span class="caret"></span>
 				  </button>
 				  <ul class="dropdown-menu" id="resta" style="margin-top: 0px; padding-bottom: 0px; padding-top: 0px">
@@ -324,13 +324,8 @@
 
   	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
  	
-<!--  	// <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
-  //  	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script> -->
-
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
-    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
 
 
 	<script type="text/javascript" src="js/jcaro.jquery.js"></script>
@@ -342,6 +337,8 @@
 	<script src="js/script.js"></script>
 
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
 	
 <!--   	// <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script> -->
 

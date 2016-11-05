@@ -586,16 +586,14 @@ $("#map").on('click', function(f) {
 });
 
 
-angular.module('plunker', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
-angular.module('plunker').controller('DropdownCtrl', function ($scope) {
-
+angular.module('plunker', ['ui.bootstrap']);
+function DropdownCtrl($scope) {
   $scope.oneAtATime = true;
 
   $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
   $scope.status = {
-    isFirstOpen: true,
-    isFirstDisabled: false
+    isopen: false
   };
 
   $scope.toggled = function(open) {
@@ -607,4 +605,4 @@ angular.module('plunker').controller('DropdownCtrl', function ($scope) {
     $event.stopPropagation();
     $scope.status.isopen = !$scope.status.isopen;
   };
-});
+}
