@@ -548,7 +548,7 @@ $("#map").on('click', function(f) {
   f.stopPropagation();
 });
 
-$(".dropdown").on('click tap touchstart', function(f) {
+$(".dropdown").on('click tap touchstart touchend touchmove dbltap dragstart dragmove dragend', function(f) {
     $('.dropdown-menu').toggleClass("open");
 });
 
