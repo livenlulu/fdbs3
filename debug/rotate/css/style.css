@@ -684,7 +684,7 @@ font-size: 15px;
 }
 
 #headin3 {
-  margin-left: 95px;
+  margin-left: 12%;
 }
 
 @media screen and (max-width: 500px) {
@@ -700,9 +700,8 @@ font-size: 15px;
   display:none;
 }
 
-
  #headin3 {
-    margin-left: 95px;
+    margin-left: 20%;
   }
 
 #midd {
