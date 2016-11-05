@@ -705,7 +705,11 @@ font-size: 15px;
   display:none;
 }
 
- #headin3 {
+#bootstrap-overrides .dropdown {
+  pointer-events: auto;
+}
+
+#headin3 {
     margin-left: 20%;
   }
 
