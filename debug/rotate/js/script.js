@@ -586,6 +586,19 @@ $("#map").on('click', function(f) {
 });
 
 
+//  $('ul.dropdown').on('click', function (event) {
+//   $(this).parent().toggleClass('open');
+//  });
+
+// $('body').on('click', function (e) {
+//     if (!$('.dropdown').is(e.target) 
+//         && $('.dropdown').has(e.target).length === 0 
+//         && $('.open').has(e.target).length === 0
+//     ) {
+//         $('.dropdown').removeClass('.dropdown-menu');
+//     }
+// });
+
 angular.module('plunker', ['ui.bootstrap']);
 function DropdownCtrl($scope) {
   $scope.oneAtATime = true;

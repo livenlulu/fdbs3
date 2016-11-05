@@ -151,6 +151,7 @@
     opacity: 1;
     overflow:scroll;
     margin-bottom: 3px;
+    position: relative;
   }
 
 
@@ -547,6 +548,10 @@
   border-radius: 0px;
 }
 /**/
+
+#bootstrap-overrides .open .dropdown-menu {
+    position: relative;
+}
 
 #bootstrap-overrides #direct {
   background-color: #eee;
