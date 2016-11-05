@@ -548,9 +548,11 @@ $("#map").on('click', function(f) {
   f.stopPropagation();
 });
 
-$(".dropdown").on('click tap touchstart touchend touchmove dbltap dragstart dragmove dragend', function(f) {
-    $('.dropdown-menu').toggleClass("open");
-});
+// $(".dropdown").on('click tap touchstart touchend touchmove dbltap dragstart dragmove dragend', function() {
+//     $('.dropdown-menu').toggleClass("open");
+// });
+
+$('.dropdown').doubleTapToGo();
 
 
  $("#source").click(function(e) {
