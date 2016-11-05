@@ -548,7 +548,7 @@ $("#map").on('click', function(f) {
   f.stopPropagation();
 });
 
-$(".dropdown").on('tap touchstart', function(f) {
+$(".dropdown").on('mouseenter mouseleave click tap', function(f) {
     $(this).toggleClass("open");
 });
 
