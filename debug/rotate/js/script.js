@@ -544,13 +544,25 @@ $(document).ready(function () {
 // });
 
 //avoidclick
+
+$(document).ready(function() {
+
+$('a').on('click touchend', function(e) {
+var el = $(this);
+var link = el.attr('href');
+window.location = link;
+});
+
+});
+
+
 $("#map").on('click', function(f) {
   f.stopPropagation();
 });
 
-// $(".dropdown").on('click tap touchstart touchend touchmove dbltap dragstart dragmove dragend', function() {
-//     $('.dropdown-menu').toggleClass("open");
-// });
+$(".dropdown").on('click touchend', function() {
+    $('.dropdown-menu').toggleClass("open");
+});
 
 $('.dropdown').doubleTapToGo();
 
