@@ -552,6 +552,8 @@ $(".dropdown").on('tap', function(f) {
   ('.dropdown-menu').open;
 });
 
+$('.dropdown').doubleTapToGo();
+
  $("#source").click(function(e) {
  e.stopPropagation();
 
