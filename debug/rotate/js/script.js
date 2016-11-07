@@ -554,15 +554,13 @@ $(".dropdown").on('click touchend', function() {
     $('.dropdown-menu').toggleClass("open");
 });
 
-$('.dropdown').doubleTapToGo();
-
 
  $("#source").click(function(e) {
  e.stopPropagation();
 
 });
 
- $("#direct").on('click touchstart touchend touchmove tap dbltap dragstart dragmove dragend', function(f) {
+ $("#direct").on('click', function(e) {
  e.stopPropagation();
 });
 
@@ -607,24 +605,3 @@ $('.dropdown').doubleTapToGo();
 //         $('.dropdown').removeClass('.dropdown-menu');
 //     }
 // });
-
-angular.module('plunker', ['ui.bootstrap']);
-function DropdownCtrl($scope) {
-  $scope.oneAtATime = true;
-
-  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
-
-  $scope.status = {
-    isopen: false
-  };
-
-  $scope.toggled = function(open) {
-    console.log('Dropdown is now: ', open);
-  };
-
-  $scope.toggleDropdown = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    $scope.status.isopen = !$scope.status.isopen;
-  };
-}
